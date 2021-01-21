@@ -1,0 +1,52 @@
+{
+  "name": "testing-in-js",
+  "version": "1.0.0",
+  "description": "JavaScript Testing Workshop",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andlbrei/testing-in-js.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "Testing"
+  ],
+  "author": "Anders Linge Olsvik Breilid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andlbrei/testing-in-js/issues"
+  },
+  "homepage": "https://github.com/andlbrei/testing-in-js#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^1.0.6",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.3",
+    "@types/jest": "^26.0.20",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.18.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-react": "^7.22.0",
+    "jest": "^26.6.3",
+    "msw": "^0.25.0",
+    "parcel-bundler": "^1.12.4",
+    "regenerator-runtime": "^0.13.7",
+    "whatwg-fetch": "^3.5.0"
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
+}
