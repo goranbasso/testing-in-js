@@ -108,3 +108,4 @@ dist/*
 .history
 .cache
 .vscode
+/.idea/
