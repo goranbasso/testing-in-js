@@ -1,0 +1,229 @@
+forslag til oppgaver:
+
+    en tour av de forskjellige verktøyene man har til rådighet gjennom jest
+
+    globals:
+        afterAll()
+            cleanup, er kanskje ikke så viktig?
+
+        afterEach()
+            cleanup igjen
+
+        beforeAll()
+            denne kan man vise frem, men kanskje bedre med den andre?
+
+        beforeEach()
+            denne kan man vise frem, sette opp test-data før man kjører selve testen
+
+        describe()
+            denne er ganske elementær
+
+        describe.each()
+            denne lar oss sende inn flere forskjellige parametere til samme test
+            veldig kult, syns vi bør vise denne frem
+
+        describe.only()
+            ja, denne er super-nyttig mens man skriver tester
+
+        describe.skip()
+            denne og
+
+        test()
+            hva er egentlig forskjellen på test() og describe() og it() ?
+            oh, it() er faktisk et alias til test() - så de er nøyaktig like
+            describe lar oss samle en rekke tester til en suite
+        test.each()
+        test.only()
+        test.skip()
+        test.todo()
+
+    expect:
+        expect()
+            dette er selve grunnlaget for assertions i jest
+
+        expect.extend(matchers)
+            denne kan vi bruke for å benytte våre egne matchers
+            de viser til en toBeWithinRange()-matcher som de implementerer
+            la oss gjøre dette
+            det er også noe async-matchers, og dette custom-matchers APIet
+
+        expect.anything()
+            denne er litt marginal, tenker den ikke er så viktig
+
+        expect.any(constructor)
+            okay, litt mindre marginal enn forrige (hvertfall i non-typescript-prosjekt)
+
+        expect.arrayContaining(array)
+            jaaaa, denne må vi bruke
+
+        expect.assertions(number)
+            sjekker at et vist antall assertions blir kalt under en test
+            har brukt noe tilsvarende en del i arbeidssammenheng, kanskje hvis vi finner en bra oppgave til dette?
+            men kanskje ikke pri-number-one
+
+        expect.hasAssertions()
+            verifiserer at minst en assertion blir kalt under en test, litt marginal
+
+        expect.not
+            .not syns jeg vi skal få med på en eller annen måte
+            kan bruke denne på .arrayContaining(array), .objectContaining(object), .stringMatching(string | regexp)
+
+        expect.arrayContaining(array)
+            denne syns jeg vi skal vise frem
+
+        expect.objectContaining(object)
+            ohh, denne er kul faktisk, kan vise den frem om vi har plass
+
+        expect.stringContaining(string)
+            kult, syns vi kan prøve å få med
+
+        expect.stringMatching(string | regexp)
+            kult med regex, men kanskje for heavy
+            men vanlig stringmatching er innafor, tenker jeg
+
+        expect.addSnapshotSerializer(serializer)
+            denne er veldig sick, men tror den er way out of scope for dette
+
+        expect.resolves
+            dette handler om promiser, vi burde ha noe med dette
+
+        expect.rejects
+            samme her, promise-håndtering, gir mening å teste dette
+
+        expect.toBe(value)
+            elementær, vi må bruke denne
+
+        expect.toHaveBeenCalled()
+            denne er kul, vil gjerne ha en test som bruker denne
+
+        expect.toHaveBeenCalledTimes(number)
+            cool, maybe, maybe not
+
+        expect.toHaveBeenCalledWith(arg1, arg2, ...)
+            kult, men begynner å bli marginalt
+
+        expect.toHaveBeenLastCalledWith(arg1, arg2, ...)
+            okay, veldig marginalt
+
+        expect.toHaveBeenNthCalledWith(nthCall, arg1, arg2, ...)
+            sweet marginal jesus
+
+        expect.toHaveReturned()
+            njaaaaa, vi har jo tohaveBeenCalled() liksom
+            men kan gi mening også, hvis de må fikse en funksjon
+            hvis man har en metode som blir kalt med strenger istedet for tall, så kanskje denne i kombinasjon med
+            denne .any(constructor)-funksjonen over?
+
+        expect.toHaveReturnedTimes(number)
+            nja
+
+        expect.toHaveReturnedWith(value)
+            nja
+
+        expect.toHaveLastReturnedWith(value)
+            veldig nja
+
+        expect.toHaveNthReturnedWith(nthCall, value)
+            nja-city
+
+        expect.toHaveProperty(keyPath, value?)
+            denne er ganske nice og nyttig, føler jeg
+            spesielt hvis vi viser at man kan gå ned i tre-strukturen med dot-notasjon
+
+        expect.toBeCloseTo(number, numDigits?)
+            ah, for å håndtere mangel på presisjon med flyttall-aritmetikk
+            i want this - men kan det være for crazy for førsteårs-studenter?
+            don't trust the computer
+
+        expect.toBeDefined()
+            i dunno
+
+        expect.toBeFalsy()
+            nja
+
+        expect.toBeGreaterThan(number | bigint)
+            jepp, liker denne (og forøvrig de andre number-greiene)
+            trenger sikkert ikke ha en test for *alle* disse, men syns vi bør vise de frem
+
+        expect.toBeGreaterThanOrEqual(number | bigint)
+            jepp
+
+        expect.toBeLessThan(number | bigint)
+            jepp
+
+        expect.toBeLessThanOrEqual(number | bigint)
+            jeppsi-pepsi
+
+        expect.toBeInstanceOf(Class)
+            nja
+
+        expect.toBeNull()
+            ja mann
+
+        expect.toBeTruthy()
+            nja
+
+        expect.toBeUndefined()
+            ja nja kanskje nja nei
+
+        expect.toBeNaN()
+            denne kan være nice, sammen med .not - for å sjekke at man faktisk bruker tall og ikke streng-verdier
+            i aritmetikk, for eksempel
+
+        expect.toContain(item)
+            sjekker om noe er i et array, kan være nice
+            denne bruker === for å sjekke verdier
+
+        expect.toContainEqual(item)
+            denne bruker === rekursivt for å sjekke at 2 objekter er like
+            litt marginal? eller?
+
+        expect.toEqual(value)
+            no-brainer
+
+        expect.toMatch(regexp | string)
+            denne, uten regex
+
+        expect.toMatchObject(object)
+            som toContainEqual(), men sjekker at et objekt matcher subsettet av properties på et annet objekt
+            litt marginal, imo
+
+        expect.toMatchSnapshot(propertyMatchers?, hint?)
+            nah
+
+        expect.toMatchInlineSnapshot(propertyMatchers?, inlineSnapshot)
+            nah
+
+        expect.toStrictEqual(value)
+            tja, litt usikker faktisk
+
+        expect.toThrow(error)
+            har lyst å få denne med
+
+        expect.toThrowErrorMatchingSnapshot(hint?)
+            nope
+
+        expect.toThrowErrorMatchingInlineSnapshot(inlineSnapshot)
+            my god
+
+
+  De jeg tenker er aktuelle:
+    expect()
+      .extend(matchers)
+      .any(constructor)
+      .not()
+      .arrayContaining(array)
+      .objectContaining(object)
+      .stringContaining(string) (eller .stringMatching(string))
+      .resolves()
+      .rejects()
+      .toBe(value)
+      .toHaveBeenCalled()
+      .toHaveProperty(keyPath, value?)
+      .toBeGreaterThan(number) (og alle de lignende, .toBeGraterThanOrEqual(), .toBeLessThan(), etc)
+      .toBeNull()
+      .toBeNaN()
+      .toContain(item)
+      .toEqual(value)
+      .toMatch(string)
+      .toThrow(error)
