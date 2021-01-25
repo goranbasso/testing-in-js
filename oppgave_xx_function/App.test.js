@@ -13,7 +13,7 @@ describe('Test of .toHaveBeenCalled()', () => {
   
   it('login-function has been called', () => {
     // fireEvent(screen.queryByTestId('username-input'), new KeyboardEvent())
-    fireEvent(screen.queryByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
+    fireEvent(screen.getByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
     expect(loginFunc).toHaveBeenCalled()
   })
 })

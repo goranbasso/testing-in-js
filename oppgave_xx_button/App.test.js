@@ -10,10 +10,10 @@ describe('button event testing or something, i dunno', () => {
 
   let buttonToggle = false;
   const assertButtonText = (text) => {
-    expect(screen.queryByRole('button').innerHTML).toMatch(text)
+    expect(screen.getByRole('button').innerHTML).toMatch(text)
   }
   const clickButton = () => {
-    fireEvent(screen.queryByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
+    fireEvent(screen.getByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
     buttonToggle = !buttonToggle
   }
 

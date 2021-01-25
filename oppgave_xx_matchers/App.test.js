@@ -25,7 +25,7 @@ describe('table testing with custom matchers let\'s go!', () => {
   })
 
   const getValueFromRow = (position, index) => {
-    return screen.queryByTestId(`row_${position}_${index}`).innerHTML
+    return screen.getByTestId(`row_${position}_${index}`).innerHTML
   }
 
   // stupid example maybe, should use numbers instead? maybe parts of the multiplication table? 1 to 5?
