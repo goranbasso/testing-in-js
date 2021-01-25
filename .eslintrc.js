@@ -10,6 +10,8 @@ module.exports = {
     'plugin:react/recommended',
     "plugin:jest/recommended",
     "plugin:jest/style",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/react"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -21,6 +23,7 @@ module.exports = {
   "plugins": [
     "react",
     "jest",
+    "jest-dom"
   ],
   "rules": {
     "indent": [
