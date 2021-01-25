@@ -4,8 +4,7 @@ import App from './App'
 
 it('Lists the users Anders and Gøran', async () => {
   render(<App />)
-  await waitFor(() => {
-    expect(screen.queryByText(/Gøran/)).toBeInTheDocument()
-    expect(screen.queryByText(/Anders/)).toBeInTheDocument()
-  })
+
+  expect(await screen.findByText(/Gøran/)).toBeInTheDocument()
+  expect(await screen.findByText(/Anders/)).toBeInTheDocument()
 })
