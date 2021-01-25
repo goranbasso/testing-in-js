@@ -5,7 +5,7 @@ const App = (props) => {
   return (
     <div>
     Hello {props.name}
-      {/* <button>Press Me</button> */}
+      {/*<button>{props.name}</button>*/}
     </div>
   );
 }
@@ -15,7 +15,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  name: "World",
+  name: "Press Me",
 }
 
 export default App
