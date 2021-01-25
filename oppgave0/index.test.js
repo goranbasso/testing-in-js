@@ -18,4 +18,5 @@ it('sum() returns the sum of the two input variables', () => {
 // the test is not implemented (but code should, maybe, work fine)
 it('product() returns the product of the two input variables', () => {
   // implement a test for product()
+  // expect(product(2, 3)).toEqual(6)
 })

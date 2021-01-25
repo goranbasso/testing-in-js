@@ -18,7 +18,7 @@ const App = () => {
   }
 
   const buttonDisplayText = () => {
-    return spooky ? ghost : cat;
+    return spooky ? ghost : cat
   }
 
   return (
