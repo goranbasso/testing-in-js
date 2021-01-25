@@ -1,50 +1,67 @@
 import React, {useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
 
-export const login = (username, password) => {
-  console.log(`logging in with username ${username} and password ${password}`)
+export const sum = (a, b) => {
+  return a + b
+}
+
+export const calc = (fn, a, b) => {
+  return fn(a, b)
 }
 
 const App = (props) => {
 
-  const [username, setUsername] = useState([])
-  const [password, setPassword] = useState([])
+  const [paramA, setParamA] = useState([])
+  const [paramB, setParamB] = useState([])
+  const [result, setResult] = useState([])
 
   useEffect(() => {
-    setUsername('')
-    setPassword('')
+    setParamA('0')
+    setParamB('0')
   }, [])
 
-  const onUsernameChanged = (event) => {
-    setUsername(event.target.value)
+  const onParamAChanged = (event) => {
+    setParamA(event.target.value)
   }
 
-  const onPasswordChanged = (event) => {
-    const obfuscatedPassword = event.target.value.replace(/./g, '*')
-    setPassword(obfuscatedPassword)
+  const onParamBChanged = (event) => {
+    setParamB(event.target.value)
   }
 
-  const onLogin = () => {
-    console.log('login')
-    // eslint-disable-next-line react/prop-types
-    // props.login(username, password)
-    login(username, password)
+  const onCalculate = () => {
+    const calculated = props.calc(paramA, paramB)
+    // const calculated = props.calc(parseInt(paramA), parseInt(paramB))
+    setResult(calculated)
   }
 
   return (
     <div>
       <label>
-        Brukernavn:
-        <input value={username} onChange={onUsernameChanged} data-testid={"username-input"} />
+        Param A:
+        <input value={paramA} onChange={onParamAChanged} data-testid={"param-a-input"} />
       </label>
       <br />
       <label>
-        Passord:
-        <input value={password} onChange={onPasswordChanged} data-testid={"password-input"} />
+        Param B:
+        <input value={paramB} onChange={onParamBChanged} data-testid={"param-b-input"} />
       </label>
       <br />
-      <button type={"button"} onClick={onLogin}>Login</button>
+      <button type={"button"} onClick={onCalculate}>calculate!</button>
+      <br />
+      <label htmlFor={"result"}>
+        Result:
+      </label>
+      <input id={"result"} disabled value={result} />
     </div>
   )
+}
+
+App.propTypes = {
+  calc: PropTypes.func
+}
+
+App.defaultProps = {
+  calc: sum
 }
 
 export default App
