@@ -1,44 +1,43 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import App, {sum} from './App';
+import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumbers} from "./index";
 
+describe('Test of .toThrow() (exception handling)', () => {
 
-describe('Test of .any() (type-safety)', () => {
-
-  const calcCall = jest.fn((a, b) => sum(a, b))
-
-  beforeEach(() => {
-    render(<App calc={calcCall} />)
+  it('assertNorwegianNationalIdentityNumber() throws the expected error messages', () => {
+    expect(() => assertNorwegianNationalIdentityNumber(null)).toThrow('parameter is null or undefined')
+    expect(() => assertNorwegianNationalIdentityNumber('123')).toThrow('parameter does not have the correct length')
+    expect(() => assertNorwegianNationalIdentityNumber('12345abcdef')).toThrow('parameter is not numerical')
+    expect(() => assertNorwegianNationalIdentityNumber(12345678901)).toThrow(expect.any(Error))
+    expect(() => assertNorwegianNationalIdentityNumber('01017054321')).not.toThrow(expect.any(Error))
   })
 
-  it('calc-function has been called', () => {
-    fireEvent(screen.getByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
-    expect(calcCall).toHaveBeenCalled()
-  })
-  
-  it('calc-function has been called with number-parameters', () => {
-    const paramAInput = screen.getByTestId('param-a-input')
-    const paramBInput = screen.getByTestId('param-b-input')
-    const calcButton = screen.getByRole('button')
-
-    fireEvent.change(paramAInput, { target: { value: '4' }})
-    fireEvent.change(paramBInput, { target: { value: '5' }})
-    fireEvent(calcButton, new MouseEvent('click', { bubbles: true, cancelable: true }))
-    expect(calcCall).toHaveBeenCalledWith(expect.any(Number), expect.any(Number))
+  it('throwsOnNegativeNumbers() should not throw on positive numbers', () => {
+    expect(() => throwsOnNegativeNumbers(1)).not.toThrow(expect.any(Error))
   })
 
-  it('calc-function returns the expected value', () => {
-    // implement this!
+  it('throwsOnNegativeNumbers() should throw on negative numbers', () => {
+    expect(() => throwsOnNegativeNumbers(-1)).toThrow(expect.any(Error))
+  })
 
-    // const paramAInput = screen.getByTestId('param-a-input')
-    // const paramBInput = screen.getByTestId('param-b-input')
-    // const calcButton = screen.getByRole('button')
-    // const resultInput = screen.getByLabelText(/Result:/)
-    //
-    // fireEvent.change(paramAInput, { target: { value: '4' }})
-    // fireEvent.change(paramBInput, { target: { value: '5' }})
-    // fireEvent(calcButton, new MouseEvent('click', { bubbles: true, cancelable: true }))
-    // expect(resultInput.value).toEqual(expect.any(Number)) // hmm this does not quite work
-    // expect(resultInput.value).toEqual("9")
+  it('throwsOnNegativeNumbers() should throw on non-numbers', () => {
+    expect(() => throwsOnNegativeNumbers(NaN)).toThrow(expect.any(Error))
+  })
+
+  it('isNumerical() identifies numbers correctly', () => {
+    // test for them to implement themselves, lot of cases to check here
+    // expect(isNumerical(1)).toBeTruthy()
+    // expect(isNumerical('1')).toBeTruthy()
+    // expect(isNumerical('01')).toBeTruthy()
+    // expect(isNumerical('hei')).toBeFalsy()
+    // expect(isNumerical('0ab2')).toBeFalsy()
+    // expect(isNumerical(NaN)).toBeFalsy()
+    // expect(isNumerical(null)).toBeFalsy()
+  })
+
+  it('httpResponse() should throw appropriate messages on http error codes', () => {
+    // show us them 400s and 500s baby
+  })
+
+  it('httpResponse() should not throw and return appropriate messages on successful http status codes', () => {
+    // show us them 100s, 200s, and 300s boii
   })
 })

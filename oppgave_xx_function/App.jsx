@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import PropTypes from 'prop-types';
 
 export const login = (username, password) => {
   console.log(`logging in with username ${username} and password ${password}`)
@@ -45,6 +46,14 @@ const App = (props) => {
       <button type={"button"} onClick={onLogin}>Login</button>
     </div>
   )
+}
+
+App.propTypes = {
+  login: PropTypes.func
+}
+
+App.defaultProps = {
+  login: login
 }
 
 export default App

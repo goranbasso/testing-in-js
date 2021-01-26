@@ -38,6 +38,7 @@ describe('Test of .any() (type-safety)', () => {
     // fireEvent.change(paramAInput, { target: { value: '4' }})
     // fireEvent.change(paramBInput, { target: { value: '5' }})
     // fireEvent(calcButton, new MouseEvent('click', { bubbles: true, cancelable: true }))
+    // expect(resultInput.value).toEqual(expect.any(Number)) // hmm this does not quite work
     // expect(resultInput.value).toEqual("9")
   })
 })
