@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 import App, {ghost, cat} from './App';
 
 
@@ -13,7 +14,7 @@ describe('button event testing or something, i dunno', () => {
     expect(screen.getByRole('button').innerHTML).toMatch(text)
   }
   const clickButton = () => {
-    fireEvent(screen.getByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
+    userEvent.click(screen.getByRole('button'))
     buttonToggle = !buttonToggle
   }
 

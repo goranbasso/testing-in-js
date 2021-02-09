@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from "@testing-library/user-event";
 import App from './App';
 
 
@@ -12,8 +13,8 @@ describe('Test of .toHaveBeenCalled()', () => {
   })
   
   it('login-function has been called', () => {
-    // fireEvent(screen.queryByTestId('username-input'), new KeyboardEvent())
-    fireEvent(screen.getByRole('button'), new MouseEvent('click', { bubbles: true, cancelable: true }))
+    userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
+    userEvent.click(screen.getByRole('button'))
     expect(loginFunc).toHaveBeenCalled()
   })
 })
