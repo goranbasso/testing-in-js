@@ -53,7 +53,7 @@ describe('Test of .any() (type-safety)', () => {
   })
 
   /**
-   * Skriv en test som viser at funksjonen returnerer forventet verdi.
+   * Skriv en test som viser at funksjonen returnerer forventet verdi og type.
    */
   it('calc-function returns the expected value', () => {
     // implement this!
@@ -68,5 +68,25 @@ describe('Test of .any() (type-safety)', () => {
     // fireEvent(calcButton, new MouseEvent('click', { bubbles: true, cancelable: true }))
     // expect(resultInput.value).toEqual(expect.any(Number)) // hmm this does not quite work
     // expect(resultInput.value).toEqual("9")
+  })
+
+  /**
+   * Utvid applikasjonen, slik at calculate utregner flere verdier enn bare en sum.
+   * Vi ønsker flere resultater, for subtrahering, multiplisering, deling, og eksponensiering.
+   * Eventuelt flere om du ønsker.
+   * Disse resultatene skal vises på siden, og skal ha riktige typer og verdier.
+   * Skriv en test for dette, og utvid applikasjonen.
+   */
+  it('calc-function returns multiple expected values', () => {
+    // Utvid applikasjonen med flere resultater fra calculate, og skriv en test for dette
+    // Her må nok applikasjonen endres, og noen av de andre testene, slik at man kan spørre etter spesifikke resultater
+  })
+
+  /**
+   * Utvid applikasjonen, slik at vi har en knapp som uthenter nåværende dato og tidpsunkt, og viser denne på siden.
+   * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som
+   */
+  it('date test', () => {
+    // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
   })
 })

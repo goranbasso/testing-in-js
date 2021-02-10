@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
-import App from './App';
+import App, {login} from './App';
 
 /**
  * Dette testsettet er ment å vise hvordan man kan bekrefte at gitte funksjoner har blitt kalt som resultat av
@@ -22,7 +22,7 @@ describe('Test of .toHaveBeenCalled()', () => {
   /**
    * Vi mocker et funksjonskall med jest.fn()
    */
-  const loginFunc = jest.fn()
+  const loginFunc = jest.fn((username, password) => login(username, password))
 
   /**
    * Vi sender inn vårt mockete funksjonskall til appen som props.
