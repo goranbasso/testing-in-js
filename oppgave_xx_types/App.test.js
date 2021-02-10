@@ -4,13 +4,13 @@ import userEvent from "@testing-library/user-event";
 import App, {sum} from './App';
 
 /**
- * Dette testsetter ment å vise hvordan man kan forsikre typesikkerhet gjennom testing i JavaScript.
+ * Dette testsettet er ment å vise hvordan man kan forsikre typesikkerhet gjennom testing i JavaScript.
  *
  * Vi har en applikasjon, hvor vi kan utregne summen av tall som vi får inn via input-felter på siden vår.
  * For at dette skal fungere, må vi være sikre på at de verdiene vi opererer med, er faktiske Number-typer.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch typesafety
+ * npm run test:watch oppgave_xx_types
  */
 
 /**
