@@ -7,7 +7,7 @@ import App, {ghost, cat} from './App';
  * Dette testsettet er ment å vise hvordan man kan programmatisk trykke på elementer i siden,
  * via Jest-APIet.
  *
- * Vi har en appliksjon, med en knapp som skal endres basert på staten til appen.
+ * Vi har en festlig Halloween-app, med en knapp som har innhold som skal endres basert på staten til appen.
  * Man endrer staten ved å trykke på knappen.
  * For å kunne teste dette, må vi kunne velge elementer på siden, og utføre handlinger på de.
  *
@@ -23,9 +23,6 @@ describe('Test of button behaviour', () => {
     render(<App />)
   })
 
-  /**
-   * screen.getByRole() lar oss hente et element fra siden, som har rollen vi sender inn
-   */
   const assertButtonText = (text) => {
     expect(screen.getByRole('button').innerHTML).toMatch(text)
   }
@@ -45,12 +42,28 @@ describe('Test of button behaviour', () => {
    * Noen ganger blir testene grønn, andre ganger feiler de.
    * Disse kan være veldig vanskelige å debugge, og det er viktig at tester er deterministiske.
    * Man skal alltid få det samme resultatet, gitt de samme parameterene.
+   *
+   * Her er det en feil i applikasjonen som gjør at testen vil være ustabil.
    */
-  it('button has the expected text when clicked', () => {
+  it('Button has the expected text when clicked', () => {
     assertButtonText(cat)
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 3; i++) {
       clickButton()
       assertButtonText(buttonToggle ? ghost : cat)
     }
+  })
+
+  /**
+   * Det er ønskelig at applikasjonen vår skal kunne sette staten direkte til en av de 2 alternativene.
+   * Akspetansekriteriene har blitt utvidet, slik at det nå skal være 2 nye knapper, som setter flagget til henholdsvis
+   * true eller false, og dette skal gjenspeiles i den orginale knappen.
+   * Utvid applikasjonen med flere knapper som setter staten eksplisitt, og test at denne oppførselen holder.
+   *
+   * Merk at getByRole()-spørringen vil feile dersom den finner flere elementer som matcher kriteriet, så her må nok
+   * en annen query benyttes (og en måte å identifisere spesifikke elementer): https://testing-library.com/docs/queries/about/
+   * De andre testene skal fortsatt være grønne.
+   */
+  it('Has two buttons that set the state explicitly', () => {
+    // Skriv en test, og utvid applikasjonen
   })
 })
