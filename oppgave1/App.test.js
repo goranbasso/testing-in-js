@@ -3,12 +3,10 @@ import { render, screen } from '@testing-library/react'
 import App from './App'
 
 /**
- * Dette testsettet men å vise hvordan man kan programmatisk sjekke elementer i siden,
- * både om de eksisterer, og hvilket innhold de har.
+ * Dette testsettet er ment å vise hvordan man programmatisk kan sjekke innhold i siden.
  *
- * Vi har en nettside, som viser noe tekst.
- * Vi kan sende inn tekst som props til komponentet, og det vil da vises på siden.
- * For å kunne teste at de riktige verdiene kommer, må vi kunne velge elementer, og sjekke innholdet av de.
+ * Vi har en applikasjon, som viser noe tekst.
+ * Vi skal kunne sende inn tekst som props til komponentet, og det skal da vises på siden.
  *
  * Kjør følgende kommando i din terminal for å starte:
  * npm run test:watch oppgave1
