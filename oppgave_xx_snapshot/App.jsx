@@ -2,11 +2,6 @@ import React, {useEffect} from 'react';
 import PropTypes from "prop-types";
 
 const App = (props) => {
-
-  useEffect(() => {
-
-  }, [])
-
   return (
     <div>
       Snapshot test
@@ -20,8 +15,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  message: 'hei hei hei'
+  message: "hei hei hei"
 }
-
 
 export default App

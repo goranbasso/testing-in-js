@@ -49,7 +49,7 @@ describe('Multiplication-table works as expected', () => {
   }
 
   /**
-   * Vi kan nøste describe-setnigner for å gruppere test-caser
+   * Vi kan nøste describe-setninger for å gruppere test-caser
    */
   describe('Multiplication-table displays the correct default values', () => {
     const number = 5
@@ -80,12 +80,12 @@ describe('Multiplication-table works as expected', () => {
   })
 
   /**
-   * Skriv flere tester som sjekker at tabellen har de riktige verdiene, gitt at man sender inn props med nye verdier
+   * Skriv flere tester som sjekker at tabellen har de riktige verdiene, gitt at man sender inn props med nye verdier.
+   * Sjekk at det er riktig antall rader, og at verdiene i radene og kolonnene stemmer.
+   * Skriv gjerne custom matchere, og utvid appen dersom nødvendig.
    */
   describe('Multiplication-table displays the correct values for custom props', () => {
     // Skriv flere tester, som sjekker at vi kan sende inn egendefinerte props, og tabellen vil ha de riktige verdiene
-    // Skriv gjerne custom matchere, og utvid appen dersom nødvendig
-    // Sjekk at det er riktig antall rader, og at verdiene i radene og kolonnene stemmer
   })
 })
 
