@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 export const login = (username, password) => {
   console.log(`logging in with username ${username} and password ${password}`)
+  return username != null && username.length > 0 && password != null && password.length > 0
 }
 
 const App = (props) => {
@@ -24,7 +25,7 @@ const App = (props) => {
     setPassword(obfuscatedPassword)
   }
 
-  const onLogin = () => {
+  const onLoginClicked = () => {
     console.log('login')
     // eslint-disable-next-line react/prop-types
     // props.login(username, password)
@@ -43,7 +44,7 @@ const App = (props) => {
         <input value={password} onChange={onPasswordChanged} data-testid={"password-input"} />
       </label>
       <br />
-      <button type={"button"} onClick={onLogin}>Login</button>
+      <button type={"button"} onClick={onLoginClicked}>Login</button>
     </div>
   )
 }
