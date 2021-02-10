@@ -1,15 +1,22 @@
 import React, {useEffect, useState} from 'react';
+import PropTypes from "prop-types";
 
-const App = () => {
+export const getNumbersFromZeroToN = (n) => {
+  return Array.from(Array(n + 1).keys())
+}
+
+const App = (props) => {
 
   const [rows, setRows] = useState([])
 
   useEffect(() => {
     const createRows = () => {
-      setRows(['hei', 'på', 'deg'])
+      setRows(getNumbersFromZeroToN(props.rowCount))
     }
     createRows()
   }, [])
+
+  const product = (a, b) => a + b
 
   const renderRows = () => {
     const rowElements = []
@@ -17,11 +24,11 @@ const App = () => {
       rowElements.push(
         <tr key={`row_${index}`}
           data-testid={`row_${index}`}>
-          <td data-testid={`row_first_${index}`}>
+          <td data-testid={`col_first_${index}`}>
             {row}
           </td>
-          <td data-testid={`row_second_${index}`}>
-            { row /* + row*/}
+          <td data-testid={`col_second_${index}`}>
+            { product(index, props.number) }
           </td>
         </tr>
       )
@@ -31,12 +38,12 @@ const App = () => {
 
   return (
     <div>
-      Table tennis
+      Products of {props.number} (from 0 to {props.rowCount}):
       <table border={1} bordercolor={'black'}>
         <thead>
           <tr>
-            <th>col1</th>
-            <th>col2</th>
+            <th>Multiplier</th>
+            <th>Product</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +52,16 @@ const App = () => {
       </table>
     </div>
   )
+}
+
+App.propTypes = {
+  number: PropTypes.number,
+  rowCount: PropTypes.number
+}
+
+App.defaultProps = {
+  number: 5,
+  rowCount: 5
 }
 
 export default App

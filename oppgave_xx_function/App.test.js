@@ -57,8 +57,8 @@ describe('Test of .toHaveBeenCalled()', () => {
    * en funksjon som blir kalt som følge av login-funksjonen)
    * Skriv en test som verifiserer oppførselen, og utvid appen med en ny redirect-funksjon.
    */
-  it('redirect-function is called appropriately', () => {
-    // Merk at vi kan ha nøstede it-setninger, for å gruppere test-caser som henger sammen.
+  describe('redirect-function is called appropriately', () => {
+    // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
     it('redirect-function is not on unsuccessful login', () => {
 
     })

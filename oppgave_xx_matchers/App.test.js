@@ -1,40 +1,91 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import App, {getNumbersFromZeroToN} from './App';
 
-describe('table testing with custom matchers let\'s go!', () => {
+/**
+ * Dette testsettet er ment å demonstrere hvordan man kan utvide Jest-APIet med egendefinerte matchers.
+ *
+ * Vi har en applikasjon som viser deler av gangetabellen, basert på props som er sendt inn.
+ *
+ * Egendefinerte matchere veldig nyttige når man har en del komplisert oppførsel i applikasjonen, og gjør at man kan skrive testkode
+ * som er gjenbrukbar og lettleselig, men samtidig spesifikk til applikasjonen.
+ *
+ * Man bruker expect.extend()-funksjonen til å definere nye matchere.
+ *
+ * Dokumentasjon rundt custom matchere:
+ * https://jestjs.io/docs/en/expect#expectextendmatchers
+ *
+ * Kjør følgende kommando i din terminal for å starte:
+ * npm run test:watch opgave_xx_matchers
+ */
 
-  // our custom matcher
+describe('Multiplication-table works as expected', () => {
+
+  /**
+   * Her definerer vi vår egen matcher, .secondColumnIsProductOfFirstAndNumber(), som sjekker at
+   * verdiene i kolonenne er riktig, basert på inn-parametere
+   */
   expect.extend({
-    secondColumnIsFirstTwice(container, first, second) {
-      const pass = first + first === second
+    secondColumnIsProductOfFirstAndNumber(container, first, second, number) {
+      const pass = first * number === second
       if (pass) {
         return {
           message: () =>
-            `expected second argument ('${second}') to be the first argument ('${first}') twice: ${first + first}`,
+            `expected second argument ('${second}') to be the product of the first argument ('${first}') and number: ${first * number}`,
           pass: true,
-        };
+        }
       } else {
         return {
           message: () =>
-            `expected second argument ('${second}') to be the first argument ('${first}') twice: ${first + first}`,
+            `expected second argument ('${second}') to be the product of the first argument ('${first}') and number: ${first * number}`,
           pass: false,
-        };
+        }
       }
     }
   })
 
   const getValueFromRow = (position, index) => {
-    return screen.getByTestId(`row_${position}_${index}`).innerHTML
+    return parseInt(screen.getByTestId(`col_${position}_${index}`).innerHTML)
   }
 
-  // stupid example maybe, should use numbers instead? maybe parts of the multiplication table? 1 to 5?
-  // the point here is to implement a custom matcher, note the use of it.each() as well
-  it.each([0, 1, 2])('second column is value of first column twice', (index) => {
-    const {container} = render(<App/>);
-    const firstValue = getValueFromRow('first', index)
-    const secondValue = getValueFromRow('second', index)
-    expect(container).secondColumnIsFirstTwice(firstValue, secondValue)
+  /**
+   * Vi kan nøste describe-setnigner for å gruppere test-caser
+   */
+  describe('Multiplication-table displays the correct default values', () => {
+    const number = 5
+    const numbers = getNumbersFromZeroToN(number)
+
+    /**
+     * Denne testen skal sjekke at gangetabellen vår fungerer som forventet. En feil i koden gjør at denne feiler.
+     * Merk at vi kan bruke it.each() for å kalle samme it-setning med flere parametere
+     */
+    it.each(numbers)('The second column is the product of first column and the given number', (index) => {
+      const {container} = render(<App/>);
+      const firstValue = getValueFromRow('first', index)
+      const secondValue = getValueFromRow('second', index)
+      expect(container).secondColumnIsProductOfFirstAndNumber(firstValue, secondValue, number)
+    })
+
+    /**
+     * Vi ønsker å utvide tabellen vår, slik at den har en ny kolonne som viser tallet potensen av tallet,
+     * der første kolonne er eksponenten, og tredje kolonne er potensen.
+     * For eksempel vil 5^2 ha verdien 2 i første kolonne, og 25 i tredje.
+     *
+     * Her må applikasjonen utvides for å vise denne ekstra kolonnen, og det må skrives en test og en ny egendefinert
+     * matcher som sjekker at den tredje kolonnen har den riktige verdien
+     */
+    it.each(numbers)('The third column is the nth power of number, where n is the first column', () => {
+      // Skriv en test, som bruker en ny egendefinert matcher, og utvid applikasjonen
+    })
+  })
+
+  /**
+   * Skriv flere tester som sjekker at tabellen har de riktige verdiene, gitt at man sender inn props med nye verdier
+   */
+  describe('Multiplication-table displays the correct values for custom props', () => {
+    // Skriv flere tester, som sjekker at vi kan sende inn egendefinerte props, og tabellen vil ha de riktige verdiene
+    // Skriv gjerne custom matchere, og utvid appen dersom nødvendig
+    // Sjekk at det er riktig antall rader, og at verdiene i radene og kolonnene stemmer
   })
 })
 
