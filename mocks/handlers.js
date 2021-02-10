@@ -6,9 +6,11 @@ export const handlers = [
       context.status(200),
       context.json([
         {
+          id: 1,
           name: 'Anders'
         },
         {
+          id: 2,
           name: 'Gøran'
         }
       ])
