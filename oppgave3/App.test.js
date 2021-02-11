@@ -92,7 +92,7 @@ it('Lists the users Sigve and Frode', async () => {
  */
 it('Lists the names and usernames of the users', async () => {
   // Skriv en test, og utvid applikasjonen slik at den viser brukernavn sammen med fornavn.
-  fail('Not implemented')
+  throw new Error('Not implemented')
 })
 
 /**
@@ -104,12 +104,12 @@ it('Lists the names and usernames of the users', async () => {
  */
 it('Lists the applications developed by the users', async () => {
   // Skriv en test, og utvid applikasjonen og mocket data slik at den lister opp applikasjoner i tillegg
-  fail('Not implemented')
+  throw new Error('Not implemented')
 })
 
 
 /**
- * NB: Denne oppgaven krever kunnskap som man får i oppgaven "function" for å skrive riktige tester.
+ * NB: Denne oppgaven krever kunnskap som man får i oppgaven "4-button" for å skrive riktige tester.
  * Det kan være lurt å vente med denne til senere, så sant man ikke allerede har kjennskap til hvordan man kan teste interaksjon med elementer.
  * 
  * Vi har lyst til å kunne legge til nye brukere.
@@ -127,5 +127,5 @@ it('Lists the applications developed by the users', async () => {
  * 
  */
 it('Can add a new user', async () => {
-  fail('Not implemented')
+  throw new Error('Not implemented')
 })

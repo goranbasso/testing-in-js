@@ -65,6 +65,6 @@ describe('Test of button behaviour', () => {
    */
   it('Has two buttons that set the state explicitly', () => {
     // Skriv en test, og utvid applikasjonen
-    fail('Not implemented')
+    throw new Error('Not implemented')
   })
 })

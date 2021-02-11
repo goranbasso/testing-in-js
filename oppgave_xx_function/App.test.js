@@ -44,7 +44,7 @@ describe('Test of .toHaveBeenCalled()', () => {
    * Skriv en test som sjekker at login-funksjonen returnerer riktig med riktige parametere.
    */
   it('login-function returns the correct values', () => {
-    fail('Not implemented')
+    throw new Error('Not implemented')
   })
 
   /**
@@ -57,10 +57,10 @@ describe('Test of .toHaveBeenCalled()', () => {
   describe('redirect-function is called appropriately', () => {
     // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
     it('redirect-function is not called on unsuccessful login', () => {
-      fail('Not implemented')
+      throw new Error('Not implemented')
     })
     it('redirect-function is called on successful login', () => {
-      fail('Not implemented')
+      throw new Error('Not implemented')
     })
   })
 })

@@ -54,7 +54,7 @@ describe('Test of .any() (type-safety)', () => {
    */
   it('calc-function returns the expected value', () => {
     // Skriv en test
-    fail('Not implemented')
+    throw new Error('Not implemented')
   })
 
   /**
@@ -67,7 +67,7 @@ describe('Test of .any() (type-safety)', () => {
   it('calc-function returns multiple expected values', () => {
     // Utvid applikasjonen med flere resultater fra calculate, og skriv en test for dette
     // Her må nok applikasjonen endres, og noen av de andre testene, slik at man kan spørre etter spesifikke resultater
-    fail('Not implemented')
+    throw new Error('Not implemented')
   })
 
   /**
@@ -76,6 +76,6 @@ describe('Test of .any() (type-safety)', () => {
    */
   it('date test', () => {
     // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
-    fail('Not implemented')
+    throw new Error('Not implemented')
   })
 })
