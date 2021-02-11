@@ -17,7 +17,7 @@ const App = () => {
 
   return (
     <div>
-    Our fantastic users:
+    <h1>Our fantastic users:</h1>
       <ul>
         {
           users.map(user => <li key={user.name}><p>{user.name}</p></li>)
