@@ -5,10 +5,6 @@ export const sum = (a, b) => {
   return a + b
 }
 
-export const calc = (fn, a, b) => {
-  return fn(a, b)
-}
-
 const App = (props) => {
 
   const [paramA, setParamA] = useState([])
