@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
-export const redirect = () => {
-  console.log('login successful, redirecting...')
-}
-
 const App = (props) => {
 
   const [username, setUsername] = useState([])

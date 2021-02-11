@@ -17,7 +17,7 @@ import App, { ghost, cat } from './App';
 
 
 const assertButtonText = (text) => {
-  expect(screen.getByRole('button')).toContainHTML(text)
+  expect(screen.queryByTestId('spooky-button')).toContainHTML(text)
 }
 
 /**
@@ -28,7 +28,7 @@ const assertButtonText = (text) => {
  */
 let buttonToggle = false;
 const clickButton = () => {
-  userEvent.click(screen.getByRole('button'))
+  userEvent.click(screen.queryByTestId('spooky-button'))
   buttonToggle = !buttonToggle
 }
 
@@ -62,6 +62,14 @@ it('Button has the expected text when clicked', () => {
  * De andre testene skal fortsatt være grønne.
  */
 it('Has two buttons that set the state explicitly', () => {
-  // Skriv en test, og utvid applikasjonen
-  throw new Error('Not implemented')
+  render(<App />)
+  assertButtonText(cat)
+  clickButton()
+  assertButtonText(ghost)
+
+  userEvent.click(screen.queryByTestId('spooky-false-button'))
+  assertButtonText(cat)
+
+  userEvent.click(screen.queryByTestId('spooky-true-button'))
+  assertButtonText(ghost)
 })

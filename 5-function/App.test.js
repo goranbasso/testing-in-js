@@ -27,6 +27,9 @@ const loginFunc = jest.fn((username, password) => {
   return (username != null && username.length > 0) || (password != null && password.length > 0)
 })
 
+const redirectFunc = jest.fn(() => {
+  console.log('login successful, redirecting...')
+})
 
 /**
  * En test for å bekrefte at login-funksjonen blir kalt når login-knappen blir trykket på.
@@ -47,7 +50,23 @@ it('login function has been called', () => {
  * Skriv en test som sjekker at login-funksjonen returnerer riktig med riktige parametere.
  */
 it('login function returns the correct values', () => {
-  throw new Error('Not implemented')
+  render(<App login={loginFunc} />)
+  userEvent.click(screen.getByRole('button'))
+  expect(loginFunc).toHaveReturnedWith(false)
+
+  userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+  userEvent.click(screen.getByRole('button'))
+  expect(loginFunc).toHaveReturnedWith(false)
+
+  userEvent.type(screen.queryByTestId('username-input'), '')
+  userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+  userEvent.click(screen.getByRole('button'))
+  expect(loginFunc).toHaveReturnedWith(false)
+
+  userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+  userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+  userEvent.click(screen.getByRole('button'))
+  expect(loginFunc).toHaveReturnedWith(true)
 })
 
 /**
@@ -58,11 +77,16 @@ it('login function returns the correct values', () => {
  * Skriv en test som verifiserer oppførselen, og utvid appen med en ny redirect-funksjon.
  */
 describe('redirect function is called appropriately', () => {
-  // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
-  it('redirect function is not called on unsuccessful login', () => {
-    throw new Error('Not implemented')
+  it('redirect-function is not called on unsuccessful login', () => {
+    render(<App login={loginFunc} redirect={redirectFunc} />)
+    userEvent.click(screen.getByRole('button'))
+    expect(redirectFunc).not.toHaveBeenCalled()
   })
-  it('redirect function is called on successful login', () => {
-    throw new Error('Not implemented')
+  it('redirect-function is called on successful login', () => {
+    render(<App login={loginFunc} redirect={redirectFunc} />)
+    userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+    userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+    userEvent.click(screen.getByRole('button'))
+    expect(redirectFunc).toHaveBeenCalled()
   })
 })
