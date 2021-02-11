@@ -24,12 +24,14 @@ describe('Test of button behaviour', () => {
   })
 
   const assertButtonText = (text) => {
-    expect(screen.getByRole('button').innerHTML).toMatch(text)
+    expect(screen.getByRole('button')).toContainHTML(text)
   }
 
   /**
    * userEvent er et bibliotek som lar oss simulere forskjellige handlinger fra brukere,
    * som klikking med musen og tastetrykk.
+   * 
+   * https://github.com/testing-library/user-event
    */
   let buttonToggle = false;
   const clickButton = () => {
@@ -38,12 +40,12 @@ describe('Test of button behaviour', () => {
   }
 
   /**
-   * En versting blant tester som man gjerne kan treffe på, er tester som er flaky.
+   * En versting blant tester som man gjerne kan treffe på, er tester som er ustabile.
    * Noen ganger blir testene grønn, andre ganger feiler de.
    * Disse kan være veldig vanskelige å debugge, og det er viktig at tester er deterministiske.
    * Man skal alltid få det samme resultatet, gitt de samme parameterene.
    *
-   * Her er det en feil i applikasjonen som gjør at testen vil være ustabil.
+   * Her er det en dårlig implementasjon i applikasjonen som gjør at testen vil være ustabil.
    */
   it('Button has the expected text when clicked', () => {
     assertButtonText(cat)
@@ -59,11 +61,12 @@ describe('Test of button behaviour', () => {
    * true eller false, og dette skal gjenspeiles i den orginale knappen.
    * Utvid applikasjonen med flere knapper som setter staten eksplisitt, og test at denne oppførselen holder.
    *
-   * Merk at getByRole()-spørringen vil feile dersom den finner flere elementer som matcher kriteriet, så her må nok
-   * en annen query benyttes (og en måte å identifisere spesifikke elementer): https://testing-library.com/docs/queries/about/
+   * Merk at getByRole()-spørringen vil feile dersom den finner flere elementer som matcher kriteriet,
+   * så her må spørringen tilpasses: https://testing-library.com/docs/queries/about/
    * De andre testene skal fortsatt være grønne.
    */
   it('Has two buttons that set the state explicitly', () => {
     // Skriv en test, og utvid applikasjonen
+    fail('Not implemented')
   })
 })
