@@ -12,10 +12,7 @@ import {assertNorwegianNationalIdentityNumber, httpResponse, isNumerical, throws
  */
 
 
-/**
- * describe() lar oss definere et sett av tester, som kjører sammen.
- */
-describe('Test of .toThrow() (exception handling)', () => {
+describe('Test of SSN and numbers', () => {
 
   /**
    * En fungerende test, for en funksjon som påser at en streng er et norsk personnummer.
@@ -30,6 +27,8 @@ describe('Test of .toThrow() (exception handling)', () => {
 
   /**
    * En rekke tester for å sjekke at funksjonen kaster på negative tall.
+   *
+   * Denne funksjonen må implementeres riktig.
    */
   it('throwsOnNegativeNumbers() should not throw on positive numbers', () => {
     expect(() => throwsOnNegativeNumbers(1)).not.toThrow(expect.any(Error))
@@ -55,7 +54,9 @@ describe('Test of .toThrow() (exception handling)', () => {
     expect(isNumerical(NaN)).toBeFalsy()
     expect(isNumerical(null)).toBeFalsy()
   })
+})
 
+describe('httpResponse()', () => {
   /**
    * Test at httpResponse() kaster feil på riktige http-koder. En gitt kode skal returnere en spesifikk beskrivelse av feilen.
    * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et utvalg.

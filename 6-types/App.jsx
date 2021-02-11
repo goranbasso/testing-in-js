@@ -1,28 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
-export const sum = (a, b) => {
-  return a + b
-}
-
-export const difference = (a, b) => {
-  return a - b
-}
-
-export const product = (a, b) => {
-  return a * b
-}
-
-export const division = (a, b) => {
-  return b === 0 ? '' : a / b
-}
-
-export const exponentiation = (a, b) => {
-  return Math.pow(a, b)
-}
-
-export const getDate = () => new Date()
-
 const App = (props) => {
 
   const [paramA, setParamA] = useState([])
@@ -53,11 +31,11 @@ const App = (props) => {
     const numberParamA = parseInt(paramA)
     const numberParamB = parseInt(paramB)
     const calculated = {
-      sum: props.calcSum(numberParamA, numberParamB),
-      difference: props.calcDifference(numberParamA, numberParamB),
-      product: props.calcProduct(numberParamA, numberParamB),
-      division: props.calcDivision(numberParamA, numberParamB),
-      exponentiation: props.calcExponentiation(numberParamA, numberParamB)
+      sum: props.calculateSum(numberParamA, numberParamB),
+      difference: props.calculateDifference(numberParamA, numberParamB),
+      product: props.calculateProduct(numberParamA, numberParamB),
+      division: props.calculateDivision(numberParamA, numberParamB),
+      exponentiation: props.calculateExponentiation(numberParamA, numberParamB)
     }
     setResult(calculated)
   }
@@ -114,20 +92,20 @@ const App = (props) => {
 }
 
 App.propTypes = {
-  calcSum: PropTypes.func,
-  calcDifference: PropTypes.func,
-  calcProduct: PropTypes.func,
-  calcDivision: PropTypes.func,
-  calcExponentiation: PropTypes.func,
+  calculateSum: PropTypes.func,
+  calculateDifference: PropTypes.func,
+  calculateProduct: PropTypes.func,
+  calculateDivision: PropTypes.func,
+  calculateExponentiation: PropTypes.func,
   getDate: PropTypes.func
 }
 
 App.defaultProps = {
-  calcSum: sum,
-  calcDifference: difference,
-  calcProduct: product,
-  calcDivision: division,
-  calcExponentiation: exponentiation,
+  calculateSum: sum,
+  calculateDifference: difference,
+  calculateProduct: product,
+  calculateDivision: division,
+  calculateExponentiation: exponentiation,
   getDate: getDate
 }
 
