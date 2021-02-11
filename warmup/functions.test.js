@@ -1,5 +1,5 @@
-import { sum, identity } from "."
-import {absolute, product} from "./index";
+import { sum, identity } from "./functions"
+import {absolute, product} from "./functions";
 
 /**
  * Dette testsettet bruker vi til å varme opp litt.
