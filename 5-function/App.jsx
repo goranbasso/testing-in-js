@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
+import { wrongLoginFunction} from './login'
 
 const App = (props) => {
 
@@ -22,10 +23,8 @@ const App = (props) => {
   }
 
   const onLoginClicked = () => {
-    // console.log('login')
-    if (props.login(username, password)) {
-      props.redirect()
-    }
+    console.log('login')
+    wrongLoginFunction()
   }
 
   return (
@@ -46,8 +45,8 @@ const App = (props) => {
 }
 
 App.propTypes = {
-  login: PropTypes.func,
-  redirect: PropTypes.func
+  login: PropTypes.func.isRequired,
+  redirect: PropTypes.func.isRequired
 }
 
 App.defaultProps = {
