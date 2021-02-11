@@ -2,15 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const App = (props) => {
-  return <div>Hello {props.name}</div>;
+  return (
+    <div>
+      Hello {props.name} <br />
+      Welcome to {props.place}
+    </div>)
 }
 
 App.propTypes = {
   name: PropTypes.string,
+  place: PropTypes.string
 }
 
 App.defaultProps = {
-  name: "Borld",
+  name: "World",
+  place: 'other'
 }
 
 export default App

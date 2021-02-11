@@ -12,7 +12,7 @@ import App from './App'
  * npm run test:watch oppgave2
  */
 
- /**
+/**
   * Litt om roller for de interesserte:
   * Et element sin rolle kan være implisitt eller eksplisitt.
   * Roller brukes blant annet av skjermlesere, og indikerer funksjonaliteten til elementet.
@@ -75,7 +75,8 @@ it('Has a button with the text "Sign in"', () => {
  * Tips: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
  */
 it('Has a password field', () => {
-  fail('Not implemented')
+  render(<App />)
+  expect(screen.getByLabelText(/Password:/)).toBeInTheDocument()
 })
 
 
@@ -97,8 +98,17 @@ it('Has a password field', () => {
  * 
  */
 it('Contains a link to a fun website', () => {
-  fail('Not implemented')
+  const mozillaLink = 'https://developer.mozilla.org'
+  render(<App link={mozillaLink}/>)
+  checkLink('Cool link', mozillaLink)
 })
+
+// egendefinert hjelpemetode, fordi testen over vil feile dersom man legger til flere lenker, og fortsatt bruker getByRole
+const checkLink = (linkName, url) => {
+  expect(screen.getByText(linkName)).toBeInTheDocument()
+  expect(screen.getByText(linkName)).toHaveAttribute('href', url)
+  expect(screen.getByText(linkName)).toHaveTextContent(linkName)
+}
 
 /**
  * Det var veldig gøy for våre ansatte med en lenke til et nettsted.
@@ -109,3 +119,9 @@ it('Contains a link to a fun website', () => {
  * Merk at getBy*() vil feile dersom den oppdager flere elementer som tilfredstiller kravet.
  * https://testing-library.com/docs/queries/about/#types-of-queries
  */
+it('Contains multiple links to fun websites', () => {
+  render(<App />)
+  checkLink('Cool link', 'https://www.google.com')
+  checkLink('Other cool link', 'https://www.nrk.no')
+  checkLink('Another cool link', 'https://developer.mozilla.org')
+})

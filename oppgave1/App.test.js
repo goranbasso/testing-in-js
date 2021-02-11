@@ -40,8 +40,8 @@ it('Renders the correct text', () => {
  * Implementer en test som viser at tekst som sendes inn som props blir innhold i siden.
  */
 it('Renders the correct text when passed as props', () => {
-  // Skriv en test
-  fail('Not implemented')
+  render(<App name={'all you beautiful people!'}/>)
+  expect(screen.getByText(/Hello all you beautiful people!/)).toBeInTheDocument()
 })
 
 /**
@@ -50,5 +50,7 @@ it('Renders the correct text when passed as props', () => {
  */
 it('Renders multiple different text-contents when passed as props', () => {
   // Her må nok return-uttrykket i App-funksjonen, og props utvides
-  fail('Not implemented')
+  render(<App name={'guys!'} place={'Bergen!'}/>)
+  expect(screen.getByText(/Hello guys!/)).toBeInTheDocument()
+  expect(screen.getByText(/Welcome to Bergen!/)).toBeInTheDocument()
 })

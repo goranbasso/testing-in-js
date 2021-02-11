@@ -9,8 +9,12 @@ const App = (props) => {
       <form>
         <label htmlFor="username">Username: </label>
         <input id="username" placeholder="username"/>
-        <input placeholder="password" type="password"/>
-        <button>{props.name}</button>
+        <label htmlFor="password">Password: </label>
+        <input id="password" placeholder="password" type="password"/>
+        <button>{props.name}</button> <br />
+        <a href={props.link}>Cool link</a>
+        <a href={props.otherLink}>Other cool link</a>
+        <a href={props.anotherLink}>Another cool link</a>
       </form>
     </div>
   );
@@ -18,10 +22,16 @@ const App = (props) => {
 
 App.propTypes = {
   name: PropTypes.string,
+  link: PropTypes.string,
+  otherLink: PropTypes.string,
+  anotherLink: PropTypes.string
 }
 
 App.defaultProps = {
-  name: "Unknown Employee",
+  name: "Sign in",
+  link: "https://www.google.com",
+  otherLink: "https://www.nrk.no",
+  anotherLink: "https://developer.mozilla.org"
 }
 
 export default App

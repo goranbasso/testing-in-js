@@ -40,11 +40,11 @@ it('sum() returns the sum of the two input variables', () => {
  */
 describe('product()', () => {
   it('returns the product of the two input variables', () => {
-    fail('Not implemented')
+    expect(product(4, 5)).toEqual(20)
   })
   
   it('returns NaN if any of the input variables are not numbers', () => {
-    fail('Not implemented')
+    expect(product(4, 'a')).toBeNaN()
   })
 })
 
@@ -54,5 +54,11 @@ describe('product()', () => {
  * 
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
  */
-
-// Lag din test her
+describe('abs()', () => {
+  it('returns the absolute value of a positive number', () => {
+    expect(absolute(1)).toBe(1)
+  })
+  it('returns the absolute value of a negative number', () => {
+    expect(absolute(-1)).toBe(1)
+  })
+})
