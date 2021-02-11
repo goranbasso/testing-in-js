@@ -12,7 +12,7 @@ import App from './App'
  * 
  * Ta en titt i /mocks/-mappen, der ligger det en fil som heter handlers.js, hvor vi definerer hvilken respons
  * forskjellige endepunkter skal returnere.
- * Gjør vi et kall mot /users, gjennom fetch-APIet (getAllUsers()-funksjonen i App.jsx, vil vi få en respons
+ * Gjør vi et kall mot /users, gjennom fetch-APIet (getAllUsers()-funksjonen i App.jsx), vil vi få en respons
  * med HTTP-statuskode 200 OK, og en body som består av en liste av bruker-objekter.
  * 
  * Applikasjonen vår gjør dette kallet, og bruker innholdet av responsen.
@@ -21,7 +21,7 @@ import App from './App'
  * npm run test:watch oppgave3
  */
 
- /**
+/**
   * Litt om mocking av nettverkskall for de interesserte:
   * 
   * Det er vanlig å mocke selve funksjonen som gjør nettverkskall, for eksempel fetch()-metoden,

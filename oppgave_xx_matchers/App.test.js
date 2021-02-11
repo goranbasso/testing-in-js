@@ -49,8 +49,8 @@ describe('Multiplication-table works as expected', () => {
   }
 
   /**
-   * Vi kan nøste describe-setninger for å gruppere test-caser, og definere variabler som vi gjenbruker
-   * i de indre it-setningene.
+   * Vi kan nøste describe-setninger for å gruppere test-caser,
+   * og definere variabler som vi kan gjenbruke i de indre it-setningene.
    */
   describe('Multiplication-table displays the correct default values', () => {
     const number = 5
