@@ -34,8 +34,8 @@ describe("Snapshot testing", () => {
           hei hei hei
         </span>
       </div>
-    `);
-  });
+    `)
+  })
 
   /**
    * Et eksempel på hvordan man kan generere inline snapshot, til bruk seinere.
@@ -46,9 +46,15 @@ describe("Snapshot testing", () => {
       .create(<App message={"we're going to generate a new inline snapshot"} />)
       .toJSON();
 
-    // kommenter inn linjen under, og se hvordan testen endrer seg etter en kjøring
-    // expect(tree).toMatchInlineSnapshot();
-  });
+    expect(tree).toMatchInlineSnapshot(`
+      <div>
+        Snapshot test
+        <span>
+          we're going to generate a new inline snapshot
+        </span>
+      </div>
+    `)
+  })
 
   /**
    * Denne testen feiler, fordi det lagrede snapshottet ikke er oppdatert i henhold til koden.
@@ -65,8 +71,8 @@ describe("Snapshot testing", () => {
           the updated snapshot
         </span>
       </div>
-    `);
-  });
+    `)
+  })
 
   /**
    * Vi kan også bruke snapshots til å sjekke at objekter er like.
@@ -79,9 +85,14 @@ describe("Snapshot testing", () => {
       name: "Steven Gerrard",
     };
 
-    // kommenter inn linjen under
-    // expect(user).toMatchInlineSnapshot();
-  });
+    expect(user).toMatchInlineSnapshot(`
+      Object {
+        "createdAt": 1980-05-30T00:00:00.000Z,
+        "id": 8,
+        "name": "Steven Gerrard",
+      }
+    `)
+  })
 
   /**
    * For enkelte felter er det ikke nødvendigvis så viktig at verdien er helt den samme, men heller at den er av riktig type.
@@ -95,25 +106,11 @@ describe("Snapshot testing", () => {
       name: "Roberto Firmino",
     };
 
-    // this will fail every time, they need to change to the other matcher below
-    expect(user).toMatchInlineSnapshot(`
-      Object {
-        "createdAt": 2021-02-10T22:25:10.784Z,
-        "id": 9,
-        "name": "Roberto Firmino",
-      }
-    `);
-
-    /*
-    expect(user).toMatchInlineSnapshot(`
-      Object {
-        "createdAt": Any<Date>,
-        "id": Any<Number>,
-        "name": "Roberto Firmino",
-      }
-    `)
-     */
-  });
+    expect(user).toMatchSnapshot({
+      createdAt: expect.any(Date),
+      id: expect.any(Number)
+    })
+  })
 
   /**
    * Man kan også lagre snapshottene til separate filer, som kan være nyttig for å forenkle test-koden.
@@ -122,15 +119,19 @@ describe("Snapshot testing", () => {
    * https://jestjs.io/docs/en/snapshot-testing
    */
   it("Rendered app should match snaphot stored in file", () => {
-    // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil
-    fail('Not implemented')
+    const tree = renderer
+      .create(<App />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
   /**
    * Skriv en lignende test som over, men med egendefinerte verdier inn som props til applikasjonen.
    */
   it("Rendered app with custom props should match snapshot stored in file", () => {
-    // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil, med custom props
-    fail('Not implemented')
-  });
-});
+    const tree = renderer
+      .create(<App message={"snapshot stored in file"} />)
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  })
+})
