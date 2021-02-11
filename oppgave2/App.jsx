@@ -4,8 +4,13 @@ import PropTypes from "prop-types";
 const App = (props) => {
   return (
     <div>
-    Hello {props.name}
-      <button>{props.name}</button>
+      <p>Hello {props.name}!</p>
+      <p>Please sign in.</p>
+      <form>
+        <label for="username">Username: </label><input id="username" placeholder="username"></input>
+        <input placeholder="password" type="password"></input>
+        <button>{props.name}</button>
+      </form>
     </div>
   );
 }
@@ -15,7 +20,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  name: "World",
+  name: "Unknown Employee",
 }
 
 export default App

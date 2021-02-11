@@ -44,7 +44,7 @@ it('Renders the correct text when passed as props', () => {
 })
 
 /**
- * Utvid App.jsx slik at den aksepterer og viser flere forskjellige tekst-props, og skriv en test som bekrefeter at
+ * Utvid App.jsx slik at den aksepterer og viser flere forskjellige tekst-props, og skriv en test som bekrefter at
  * all teksten kommer med.
  */
 it('Renders multiple different text-contents when passed as props', () => {
