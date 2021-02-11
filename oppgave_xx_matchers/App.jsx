@@ -16,7 +16,8 @@ const App = (props) => {
     createRows()
   }, [])
 
-  const product = (a, b) => a + b
+  const product = (a, b) => a * b
+  const power = (a, b) => Math.pow(b, a)
 
   const renderRows = () => {
     const rowElements = []
@@ -29,6 +30,9 @@ const App = (props) => {
           </td>
           <td data-testid={`col_second_${index}`}>
             { product(index, props.number) }
+          </td>
+          <td data-testid={`col_third_${index}`}>
+            { power(index, props.number) }
           </td>
         </tr>
       )
@@ -44,6 +48,7 @@ const App = (props) => {
           <tr>
             <th>Multiplier</th>
             <th>Product</th>
+            <th>Exponential</th>
           </tr>
         </thead>
         <tbody>

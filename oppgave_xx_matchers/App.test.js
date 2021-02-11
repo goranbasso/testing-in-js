@@ -44,6 +44,25 @@ describe('Multiplication-table works as expected', () => {
     }
   })
 
+  expect.extend({
+    thirdColumnIsExponentialOfFirstAndNumber(container, first, third, number) {
+      const pass = Math.pow(number, first) === third
+      if (pass) {
+        return {
+          message: () =>
+            `expected third argument ('${third}') to be the exponential of the first argument ('${first}') and number: ${Math.pow(number, first)}`,
+          pass: true
+        }
+      } else {
+        return {
+          message: () =>
+            `expected third argument ('${third}') to be the exponential of the first argument ('${first}') and number: ${Math.pow(number, first)}`,
+          pass: false
+        }
+      }
+    }
+  })
+
   const getValueFromRow = (position, index) => {
     return parseInt(screen.getByTestId(`col_${position}_${index}`).innerHTML)
   }
@@ -75,9 +94,11 @@ describe('Multiplication-table works as expected', () => {
      * Her må applikasjonen utvides for å vise denne ekstra kolonnen, og det må skrives en test og en ny egendefinert
      * matcher som sjekker at den tredje kolonnen har den riktige verdien.
      */
-    it.each(numbers)('The third column is the nth power of number, where n is the first column', () => {
-      // Skriv en test, som bruker en ny egendefinert matcher, og utvid applikasjonen
-      fail('Not implemented')
+    it.each(numbers)('The third column is the nth power of number, where n is the first column', (index) => {
+      const {container} = render(<App />)
+      const firstValue = getValueFromRow('first', index)
+      const thirdValue = getValueFromRow('third', index)
+      expect(container).thirdColumnIsExponentialOfFirstAndNumber(firstValue, thirdValue, number)
     })
   })
 
@@ -87,8 +108,22 @@ describe('Multiplication-table works as expected', () => {
    * Skriv gjerne custom matchere, og utvid appen dersom nødvendig.
    */
   describe('Multiplication-table displays the correct values for custom props', () => {
-    // Skriv flere tester, som sjekker at vi kan sende inn egendefinerte props, og tabellen vil ha de riktige verdiene
-    fail('Not implemented')
+    const number = 2
+    const numbers = getNumbersFromZeroToN(10)
+
+    it.each(numbers)('The multiplication-table can take custom props', (index) => {
+      const {container} = render(<App number={number} rowCount={10} />)
+      const firstValue = getValueFromRow('first', index)
+      const secondValue = getValueFromRow('second', index)
+      const thirdValue = getValueFromRow('third', index)
+      expect(container).secondColumnIsProductOfFirstAndNumber(firstValue, secondValue, number)
+      expect(container).thirdColumnIsExponentialOfFirstAndNumber(firstValue, thirdValue, number)
+    })
+
+    it('The multiplication-table has the correct number of rows', () => {
+      render(<App number={number} rowCount={10} />)
+      expect(screen.getAllByRole('row')).toHaveLength(12)
+    })
   })
 })
 
