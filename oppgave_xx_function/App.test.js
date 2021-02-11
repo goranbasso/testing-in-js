@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
-import App, {login} from './App';
+import App, {login, redirect} from './App';
 
 /**
  * Dette testsettet er ment å vise hvordan man kan bekrefte at gitte funksjoner har blitt kalt som resultat av
@@ -23,19 +23,14 @@ describe('Test of .toHaveBeenCalled()', () => {
    * Vi mocker et funksjonskall med jest.fn().
    */
   const loginFunc = jest.fn((username, password) => login(username, password))
-
-  /**
-   * Vi sender inn vårt mockete funksjonskall til appen som props.
-   */
-  beforeAll(() => {
-    render(<App login={loginFunc} />)
-  })
+  const redirectFunc = jest.fn(() => redirect())
 
   /**
    * En test for å bekrefte at login-funksjonen blir kalt når login-knappen blir trykket på.
    * En feil i applikasjonen gjør at den _mockete_ funksjonen vår aldri blir kalt.
    */
   it('login-function has been called', () => {
+    render(<App login={loginFunc} />)
     userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
     userEvent.click(screen.getByRole('button'))
     expect(loginFunc).toHaveBeenCalled()
@@ -47,7 +42,23 @@ describe('Test of .toHaveBeenCalled()', () => {
    * Skriv en test som sjekker at login-funksjonen returnerer riktig med riktige parametere.
    */
   it('login-function returns the correct values', () => {
-    fail('Not implemented')
+    render(<App login={loginFunc} />)
+    userEvent.click(screen.getByRole('button'))
+    expect(loginFunc).toHaveReturnedWith(false)
+
+    userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+    userEvent.click(screen.getByRole('button'))
+    expect(loginFunc).toHaveReturnedWith(false)
+
+    userEvent.type(screen.queryByTestId('username-input'), '')
+    userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+    userEvent.click(screen.getByRole('button'))
+    expect(loginFunc).toHaveReturnedWith(false)
+
+    userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+    userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+    userEvent.click(screen.getByRole('button'))
+    expect(loginFunc).toHaveReturnedWith(true)
   })
 
   /**
@@ -59,11 +70,17 @@ describe('Test of .toHaveBeenCalled()', () => {
    */
   describe('redirect-function is called appropriately', () => {
     // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
-    it('redirect-function is not on unsuccessful login', () => {
-      fail('Not implemented')
+    it('redirect-function is not called on unsuccessful login', () => {
+      render(<App login={loginFunc} redirect={redirectFunc} />)
+      userEvent.click(screen.getByRole('button'))
+      expect(redirectFunc).not.toHaveBeenCalled()
     })
     it('redirect-function is called on successful login', () => {
-      fail('Not implemented')
+      render(<App login={loginFunc} redirect={redirectFunc} />)
+      userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
+      userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
+      userEvent.click(screen.getByRole('button'))
+      expect(redirectFunc).toHaveBeenCalled()
     })
   })
 })

@@ -2,8 +2,12 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 export const login = (username, password) => {
-  console.log(`logging in with username ${username} and password ${password}`)
-  return username != null && username.length > 0 && password != null && password.length > 0
+  // console.log(`logging in with username ${username} and password ${password}`)
+  return (username != null && username.length > 0) || (password != null && password.length > 0)
+}
+
+export const redirect = () => {
+  console.log('login successful, redirecting...')
 }
 
 const App = (props) => {
@@ -26,8 +30,10 @@ const App = (props) => {
   }
 
   const onLoginClicked = () => {
-    console.log('login')
-    login(username, password)
+    // console.log('login')
+    if (props.login(username, password)) {
+      props.redirect()
+    }
   }
 
   return (
@@ -48,11 +54,13 @@ const App = (props) => {
 }
 
 App.propTypes = {
-  login: PropTypes.func
+  login: PropTypes.func,
+  redirect: PropTypes.func
 }
 
 App.defaultProps = {
-  login: login
+  login: login,
+  redirect: redirect
 }
 
 export default App
