@@ -33,16 +33,9 @@ import App from './App'
  * https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html
  * 
  * I Norge er det krav om universell utforming for nettløsninger.
- * Les mer her:
+ * Les mer her (ikke relevant for oppgaven):
  * https://www.uutilsynet.no/regelverk/gjeldende-regelverk-og-krav/746
  */
-
-/**
- * Først en test for å sjekke at applikasjonen vår faktisk kjører.
- */
-it('Renders without crashing', () => {
-  render(<App />)
-})
 
 /**
  * En test for å sjekke at et element med en spesfikk rolle finnes i dokumentet.
@@ -56,6 +49,7 @@ it('Has a button', () => {
 
 /**
  * En test for å sjekke at at et element av en spesifikk type har et spesifikt innhold.
+ * 
  * Her er det en feil i applikasjonen som må rettes.
  */
 it('Has a button with the text "Sign in"', () => {

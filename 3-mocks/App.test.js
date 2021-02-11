@@ -61,7 +61,9 @@ import App from './App'
  */
 it('Contains the correct heading', () => {
   render(<App />)
-  expect(screen.getByRole('heading')).toBeInTheDocument()
+  const heading = screen.getByRole('heading')
+  expect(heading).toBeInTheDocument()
+  expect(heading).toHaveTextContent(/Our fantastic users:/)
 })
 
 /**
@@ -118,6 +120,7 @@ it('Lists the applications developed by the users', async () => {
  * 
  * Skriv en test basert på spesifikasjonene:
  * Utvid applikasjonen med mulighet til å legge til en ny bruker med et spesifisert navn.
+ * Det må også sendes inn et brukernavn, men det behøves ikke skrives inn av brukeren.
  * Ved vellykket innsending skal det vises en beskjed til brukeren om at innsendingen var vellykket.
  * 
  * Tips: For å sende inn data må vi bruke POST som metode i fetch.

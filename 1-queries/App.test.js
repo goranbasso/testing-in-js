@@ -13,9 +13,9 @@ import App from './App'
  */
 
 /**
- * Først en test for å sjekke at applikasjonen vår faktisk kjører.
+ * En test for å sjekke at vi finner en forventet tekst i applikasjonen
  */
-it('Renders without crashing', () => {
+it('Shows the text "Hello"', () => {
   render(<App />)
   expect(screen.getByText(/Hello/)).toBeInTheDocument()
 })

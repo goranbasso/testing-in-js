@@ -1,15 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
-export const login = (username, password) => {
-  console.log(`logging in with username ${username} and password ${password}`)
-  return (username != null && username.length > 0) || (password != null && password.length > 0)
-}
-
 const App = (props) => {
 
   const [username, setUsername] = useState([])
   const [password, setPassword] = useState([])
+  const [loginSuccess, setLoginSuccess] = useState(false)
 
   useEffect(() => {
     setUsername('')
@@ -27,7 +23,6 @@ const App = (props) => {
 
   const onLoginClicked = () => {
     console.log('login')
-    login(username, password)
   }
 
   return (
@@ -48,11 +43,7 @@ const App = (props) => {
 }
 
 App.propTypes = {
-  login: PropTypes.func
-}
-
-App.defaultProps = {
-  login: login
+  login: PropTypes.func.isRequired
 }
 
 export default App
