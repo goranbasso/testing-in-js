@@ -14,7 +14,7 @@ import App, {login} from './App';
  * https://jestjs.io/docs/en/mock-functions
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_function
+ * npm run test:watch 5-function
  */
 
 describe('Test of .toHaveBeenCalled()', () => {

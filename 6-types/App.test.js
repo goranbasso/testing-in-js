@@ -10,7 +10,7 @@ import App, {sum} from './App';
  * For at dette skal fungere, må vi være sikre på at de verdiene vi opererer med, er faktiske Number-typer.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_types
+ * npm run test:watch 6-types
  */
 
 /**

@@ -8,7 +8,7 @@ import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumb
  * Vi benytter Jest for å oppdage at vi faktisk kaster disse feilene, og at det skjer ved riktige inn-parametere.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_exceptions
+ * npm run test:watch 7-exceptions
  */
 
 

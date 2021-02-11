@@ -18,7 +18,7 @@ import App from './App'
  * Applikasjonen vår gjør dette kallet, og bruker innholdet av responsen.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave3
+ * npm run test:watch 3-mocks
  */
 
 /**

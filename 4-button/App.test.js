@@ -12,7 +12,7 @@ import App, {ghost, cat} from './App';
  * For å kunne teste dette, må vi kunne velge elementer på siden, og utføre handlinger på de.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_button
+ * npm run test:watch 4-button
  */
 
 /**

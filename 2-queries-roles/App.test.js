@@ -9,7 +9,7 @@ import App from './App'
  * Vi må definere elementene i applikasjonen, og de må vises riktig.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave2
+ * npm run test:watch 2-queries-roles
  */
 
 /**

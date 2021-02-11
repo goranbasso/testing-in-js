@@ -16,7 +16,7 @@ import App, {getNumbersFromZeroToN} from './App';
  * https://jestjs.io/docs/en/expect#expectextendmatchers
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch opgave_xx_matchers
+ * npm run test:watch 8-matchers
  */
 
 describe('Multiplication-table works as expected', () => {

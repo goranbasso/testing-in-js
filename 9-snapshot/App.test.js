@@ -18,7 +18,7 @@ import App from "./App";
  * https://jestjs.io/docs/en/snapshot-testing
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_snapshot
+ * npm run test:watch 9-snapshot
  */
 
 describe("Snapshot testing", () => {
