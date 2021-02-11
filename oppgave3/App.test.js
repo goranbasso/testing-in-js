@@ -90,7 +90,7 @@ it('Lists the users Sigve and Frode', async () => {
  * Det er behov for å utvide bruker-APIet, slik at brukere også har et brukernavn.
  * Skriv en test som bekrefter at vi viser navn og brukernavn for hver bruker, og utvidt applikasjonen slik at testen passerer.
  */
-it('Lists the names and usernames of the users', () => {
+it('Lists the names and usernames of the users', async () => {
   // Skriv en test, og utvid applikasjonen slik at den viser brukernavn sammen med fornavn.
   fail('Not implemented')
 })
@@ -102,7 +102,7 @@ it('Lists the names and usernames of the users', () => {
  * Her må applikasjonen utvides til å gjøre et ekstra fetch-kall mot et nytt endepunkt (/apps),
  * som skal returnere en liste av applikasjonsnavn som vises i applikasjonen.
  */
-it('Lists the applications developed by the users', () => {
+it('Lists the applications developed by the users', async () => {
   // Skriv en test, og utvid applikasjonen og mocket data slik at den lister opp applikasjoner i tillegg
   fail('Not implemented')
 })
@@ -126,6 +126,6 @@ it('Lists the applications developed by the users', () => {
  * Tips: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body
  * 
  */
-it('Can add a new user', () => {
+it('Can add a new user', async () => {
   fail('Not implemented')
 })
