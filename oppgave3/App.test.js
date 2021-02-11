@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import App from './App'
+import userEvent from "@testing-library/user-event";
 
 /**
  * Dette testsettet er ment å demonstrere hvordan man kan bruke mocking for å teste komponenter, uten å måtte
@@ -61,7 +62,7 @@ import App from './App'
  */
 it('Contains the correct heading', () => {
   render(<App />)
-  expect(screen.getByRole('heading')).toBeInTheDocument()
+  expect(screen.getByText('Our fantastic users:')).toBeInTheDocument()
 })
 
 /**
@@ -90,9 +91,13 @@ it('Lists the users Sigve and Frode', async () => {
  * Det er behov for å utvide bruker-APIet, slik at brukere også har et brukernavn.
  * Skriv en test som bekrefter at vi viser navn og brukernavn for hver bruker, og utvidt applikasjonen slik at testen passerer.
  */
-it('Lists the last and first names of the users', () => {
-  // Skriv en test, og utvid applikasjonen slik at den viser brukernavn sammen med fornavn.
-  fail('Not implemented')
+it('Lists the names and usernames of the users', async () => {
+  render(<App />)
+
+  expect(await screen.findByText(/Anders - andbre/)).toBeInTheDocument()
+  expect(await screen.findByText(/Anders - andbre/)).toBeInTheDocument()
+  expect(await screen.findByText(/Anders - andbre/)).toBeInTheDocument()
+  expect(await screen.findByText(/Anders - andbre/)).toBeInTheDocument()
 })
 
 /**
@@ -102,9 +107,14 @@ it('Lists the last and first names of the users', () => {
  * Her må applikasjonen utvides til å gjøre et ekstra fetch-kall mot et nytt endepunkt (/apps),
  * som skal returnere en liste av applikasjonsnavn som vises i applikasjonen.
  */
-it('Lists the applications developed by the users', () => {
-  // Skriv en test, og utvid applikasjonen og mocket data slik at den lister opp applikasjoner i tillegg
-  fail('Not implemented')
+it('Lists the applications developed by the users', async () => {
+  render(<App />)
+
+  expect(screen.getByText('Our amazing apps:')).toBeInTheDocument()
+  expect(await screen.findByText('Bildeleringen')).toBeInTheDocument()
+  expect(await screen.findByText('SAGA')).toBeInTheDocument()
+  expect(await screen.findByText('MinSide')).toBeInTheDocument()
+  expect(await screen.findByText('SpareBank1 Kredittkort')).toBeInTheDocument()
 })
 
 
@@ -126,6 +136,18 @@ it('Lists the applications developed by the users', () => {
  * Tips: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body
  * 
  */
-it('Can add a new user', () => {
-  fail('Not implemented')
+it('Can add a new user', async () => {
+  render(<App />)
+
+  const nameInput = screen.getByLabelText(/Name/)
+  const usernameInput = screen.getByLabelText(/Username/)
+
+  expect(nameInput).toBeInTheDocument()
+  expect(usernameInput).toBeInTheDocument()
+
+  userEvent.type(nameInput, 'Viktor')
+  userEvent.type(usernameInput, 'vikhan')
+  userEvent.click(screen.getByRole('button'))
+
+  expect(await screen.findByText(/Viktor - vikhan/)).toBeInTheDocument()
 })
