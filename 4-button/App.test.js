@@ -1,7 +1,7 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import App, { ghost, cat } from './App';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from "@testing-library/user-event"
+import App, { ghost, cat } from './App'
 
 /**
  * Dette testsettet er ment å vise hvordan man kan programmatisk trykke på elementer i siden,

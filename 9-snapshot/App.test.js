@@ -1,7 +1,6 @@
-import { render } from "@testing-library/react";
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./App";
+import { render } from "@testing-library/react"
+import React from "react"
+import App from "./App"
 
 /**
  * Dette testsettet er ment å demonstrere hvordan man kan forenkle testingen ved å benytte snapshots.
@@ -26,7 +25,7 @@ import App from "./App";
  * Først en test som viser hvordan snapshots ser ut som JSX i testkode. (Det er parameteret til toMatchInlineSnapshot())
  */
 it("Rendered app should match stored snapshot", () => {
-  const { container } = render(<App />);
+  const { container } = render(<App />)
   expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         Snapshot test
@@ -34,8 +33,8 @@ it("Rendered app should match stored snapshot", () => {
           hei hei hei
         </span>
       </div>
-    `);
-});
+    `)
+})
 
 /**
  * Et eksempel på hvordan man kan generere inline snapshot, til bruk seinere.
@@ -44,7 +43,7 @@ it("Rendered app should match stored snapshot", () => {
 it("Example on how to generate an inline snapshot", () => {
   const { container } = render(
     <App message={"we're going to generate a new inline snapshot"} />
-  );
+  )
 
   // kommenter inn linjen under, og se hvordan testen endrer seg etter en kjøring
   expect(container.firstChild).toMatchInlineSnapshot(`
@@ -54,8 +53,8 @@ it("Example on how to generate an inline snapshot", () => {
         we're going to generate a new inline snapshot
       </span>
     </div>
-  `);
-});
+  `)
+})
 
 /**
  * Denne testen feiler, fordi det lagrede snapshottet ikke er oppdatert i henhold til koden.
@@ -66,12 +65,12 @@ it("Snapshot should be kept up to date", () => {
   expect(container.firstChild).toMatchInlineSnapshot(`
       <div>
         Snapshot test
-        <span>
+        <div>
           the updated snapshot
-        </span>
+        </div>
       </div>
-    `);
-});
+    `)
+})
 
 /**
  * Vi kan også bruke snapshots til å sjekke at objekter er like.
@@ -82,11 +81,11 @@ it("Snapshots can also be used to match object properties", () => {
     createdAt: new Date(328492800000),
     id: 8,
     name: "Steven Gerrard",
-  };
+  }
 
   // kommenter inn linjen under
   // expect(user).toMatchInlineSnapshot();
-});
+})
 
 /**
  * For enkelte felter er det ikke nødvendigvis så viktig at verdien er helt den samme, men heller at den er av riktig type.
@@ -98,7 +97,7 @@ it("Object has the correct types", () => {
     createdAt: new Date(),
     id: Math.floor(Math.random() * 20),
     name: "Roberto Firmino",
-  };
+  }
 
   expect(user).toMatchInlineSnapshot(`
       Object {
@@ -106,8 +105,8 @@ it("Object has the correct types", () => {
         "id": 9,
         "name": "Roberto Firmino",
       }
-    `);
-});
+    `)
+})
 
 /**
  * Man kan også lagre snapshottene til separate filer, som kan være nyttig for å forenkle test-koden.
@@ -117,13 +116,13 @@ it("Object has the correct types", () => {
  */
 it("Rendered app should match snaphot stored in file", () => {
   // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil
-  throw new Error("Not implemented");
-});
+  throw new Error("Not implemented")
+})
 
 /**
  * Skriv en lignende test som over, men med egendefinerte verdier inn som props til applikasjonen.
  */
 it("Rendered app with custom props should match snapshot stored in file", () => {
   // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil, med custom props
-  throw new Error("Not implemented");
-});
+  throw new Error("Not implemented")
+})

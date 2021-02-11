@@ -1,4 +1,4 @@
-import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumbers} from "./exceptions";
+import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumbers} from "./exceptions"
 
 /**
  * Dette testsettet er ment å vise hvordan man kan oppdage og håndtere Exceptions som blir kastet av koden.

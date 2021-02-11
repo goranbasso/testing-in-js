@@ -1,6 +1,6 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App, {getNumbersFromZeroToN} from './App';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import App, {getNumbersFromZeroToN} from './App'
 
 /**
  * Dette testsettet er ment å demonstrere hvordan man kan utvide Jest-APIet med egendefinerte matchers.
