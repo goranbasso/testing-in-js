@@ -23,10 +23,6 @@ export const exponentiation = (a, b) => {
 
 export const getDate = () => new Date()
 
-export const calc = (fn, a, b) => {
-  return fn(a, b)
-}
-
 const App = (props) => {
 
   const [paramA, setParamA] = useState([])

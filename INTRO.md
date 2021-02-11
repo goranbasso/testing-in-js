@@ -42,7 +42,7 @@ I tillegg til Jest bruker vi flere biblioteker fra Testing Library.
 ### JSDOM
 Jest-testene våre kjører i et kjøremiljø som kalles JSDOM.  
 Dette er en emulering av hvordan en nettleser fungerer. Det vil si at vi kan få generert HTML-kode akkurat slik som en React-applikasjon gjør, eller en hvilken som helst annen JavaScript-basert måte å generere HTML på.  
-Vi ser ikke denne HTML-koden selv uten videre, men vi kan anta at den eksisterer i JSDOM, og vi kan da lage tester som sjekker om den HTML-koden som er generert oppfyller de kravene vi har til den. Vi kan se HTML-koden ved å kalle `debug()`, og vi får se den automatisk når testene våre feiler.
+Vi ser ikke denne HTML-koden selv uten videre, men vi kan anta at den eksisterer i JSDOM, og vi kan da lage tester som sjekker om den HTML-koden som er generert oppfyller de kravene vi har til den. Vi kan se HTML-koden ved å kalle `screen.debug()`, og vi får se den automatisk når testene våre feiler.
 
 Vi kommer til å bruke `render()` og `screen` mye.  
 **`render()`** bruker vi for å rendre vår React-komponent.  
@@ -78,7 +78,8 @@ Vi er kun interessert i HTML-koden som blir generert, ikke CSS.
 
 Kjør testene til oppgavene med kommandoen `test:watch` som er nærmere beskrevet nedenfor.
 Med denne kommandoen vil testene kjøres på nytt ved endringer i enten applikasjonskoden eller testkoden.  
-Ha et terminalvindu oppe, kjør kommandoen der, og følg med på statusen på testene i oppgaven mens du jobber med den.
+Ha et terminalvindu oppe, kjør kommandoen der, og følg med på statusen på testene i oppgaven mens du jobber med den.  
+NB: Du skal aldri modifisere filene `index.js` eller `index.html`
 
 ## Bruk
 - For å følge tester under utvikling:  
@@ -93,7 +94,9 @@ Ha et terminalvindu oppe, kjør kommandoen der, og følg med på statusen på te
 >`npm run start oppgave1/index.html`
 
 ## Nyttig jest-funksjonalitet
+Hvis tilbakemeldingene fra jest blir rotete i terminalvinduet kan det være lurt å bruke kommandoene under for å rydde opp litt.  
+Husk å fjerne dette når du er ferdig slik at alle testene kjører!
 - For å kjøre en enkelt test:  
 >`it.only()`
 - For å hoppe over en test:  
->`it.skip()`
+>`it.skip()`  

@@ -33,6 +33,7 @@ module.exports = {
     "linebreak-style": [
       "off",
       "unix"
-    ]
+    ],
+    "jest/expect-expect": "off"
   }
 };

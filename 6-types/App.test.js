@@ -10,7 +10,7 @@ import App, {difference, division, exponentiation, getDate, product, sum} from '
  * For at dette skal fungere, må vi være sikre på at de verdiene vi opererer med, er faktiske Number-typer.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_types
+ * npm run test:watch 6-types
  */
 
 /**
@@ -32,6 +32,7 @@ describe('Test of .any() (type-safety)', () => {
    * Her sjekker vi at funksjonen har blitt kalt i det hele tatt.
    */
   it('calc-function has been called', () => {
+    // Vi sender inn det mockete funksjonskallet
     render(<App calcSum={calcSumCall} />)
     const calcButton = screen.getByText(/calculate!/)
     userEvent.click(calcButton)
@@ -73,12 +74,12 @@ describe('Test of .any() (type-safety)', () => {
 
   /**
    * Utvid applikasjonen, slik at calculate utregner flere verdier enn bare en sum.
-   * Vi ønsker flere resultater, for subtrahering, multiplisering, deling, og eksponensiering.
+   * Vi ønsker flere resultater, eksempelvis subtrahering, multiplisering, deling, og eksponensiering.
    * Eventuelt flere om du ønsker.
    * Disse resultatene skal vises på siden, og skal ha riktige typer og verdier.
    * Skriv en test for dette, og utvid applikasjonen.
    */
-  it('calc-function returns multiple expected values', () => {
+  it('calc-function calculates multiple expected values', () => {
     render(<App
       calcSum={calcSumCall}
       calcDifference={calcDifferenceCall}
@@ -115,7 +116,7 @@ describe('Test of .any() (type-safety)', () => {
    * Utvid applikasjonen, slik at vi har en knapp som uthenter nåværende dato og tidpsunkt, og viser denne på siden.
    * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som henter datoen.
    */
-  it('date test', () => {
+  it('date-function returns a date object', () => {
     render(<App getDate={getDateCall} />)
 
     userEvent.click(screen.getByText(/Get the date/))

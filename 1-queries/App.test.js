@@ -6,16 +6,16 @@ import App from './App'
  * Dette testsettet er ment å vise hvordan man programmatisk kan sjekke innhold i siden.
  *
  * Vi har en applikasjon, som viser noe tekst.
- * Vi skal kunne sende inn tekst som props til komponentet, og det skal da vises på siden.
+ * Vi skal kunne sende inn tekst som props til komponenten, og det skal da vises på siden.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave1
+ * npm run test:watch 1-queries
  */
 
 /**
- * Først en test for å sjekke at applikasjonen vår faktisk kjører.
+ * En test for å sjekke at vi finner en forventet tekst i applikasjonen
  */
-it('Renders without crashing', () => {
+it('Shows the text "Hello"', () => {
   render(<App />)
   expect(screen.getByText(/Hello/)).toBeInTheDocument()
 })

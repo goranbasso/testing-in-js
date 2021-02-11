@@ -1,14 +1,14 @@
-import {assertNorwegianNationalIdentityNumber, httpResponse, isNumerical, throwsOnNegativeNumbers} from "./index";
+import {assertNorwegianNationalIdentityNumber, httpResponse, isNumerical, throwsOnNegativeNumbers} from "./exceptions";
 
 /**
  * Dette testsettet er ment å vise hvordan man kan oppdage og håndtere Exceptions som blir kastet av koden.
  *
- * Vi har en rekke funksjoner, hvor meningen er at de ved invalide parametere skal kaste feil, som vi kan håndtere
+ * Vi har en rekke funksjoner, hvor meningen er at de ved ugyldige parametere skal kaste feil, som vi kan håndtere
  * lengre oppe i applikasjonen vår.
  * Vi benytter Jest for å oppdage at vi faktisk kaster disse feilene, og at det skjer ved riktige inn-parametere.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_exceptions
+ * npm run test:watch 7-exceptions
  */
 
 
@@ -44,7 +44,7 @@ describe('Test of .toThrow() (exception handling)', () => {
   })
 
   /**
-   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber()).
+   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber())
    */
   it('isNumerical() identifies numbers correctly', () => {
     expect(isNumerical(1)).toBeTruthy()
@@ -57,8 +57,8 @@ describe('Test of .toThrow() (exception handling)', () => {
   })
 
   /**
-   * Skriv noen tester som forsikrer at httpResponse() kaster på riktige http-koder.
-   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et fornuftig utvalg.
+   * Test at httpResponse() kaster feil på riktige http-koder. En gitt kode skal returnere en spesifikk beskrivelse av feilen.
+   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et utvalg.
    */
   it('httpResponse() should throw appropriate messages on http error codes', () => {
     expect(() => httpResponse(400)).toThrow('400 Bad Request')

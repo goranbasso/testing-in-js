@@ -19,7 +19,7 @@ import userEvent from "@testing-library/user-event";
  * Applikasjonen vår gjør dette kallet, og bruker innholdet av responsen.
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave3
+ * npm run test:watch 3-mocks
  */
 
 /**
@@ -53,7 +53,7 @@ import userEvent from "@testing-library/user-event";
   * 
   * Merk at det også finnes tester som gjør kall mot eksterne tjenester, og sjekker at responsen fra de er riktig,
   * og blir behandlet riktig av en applikasjon.
-  * Dette er gjerne del av integrajsonstester, eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
+  * Dette er gjerne del av integrasjonstester, og / eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
   *
   */
 
@@ -119,7 +119,7 @@ it('Lists the applications developed by the users', async () => {
 
 
 /**
- * NB: Denne oppgaven krever kunnskap som man får i oppgaven "function" for å skrive riktige tester.
+ * NB: Denne oppgaven krever kunnskap som man får i oppgaven "4-button" for å skrive riktige tester.
  * Det kan være lurt å vente med denne til senere, så sant man ikke allerede har kjennskap til hvordan man kan teste interaksjon med elementer.
  * 
  * Vi har lyst til å kunne legge til nye brukere.
@@ -128,6 +128,7 @@ it('Lists the applications developed by the users', async () => {
  * 
  * Skriv en test basert på spesifikasjonene:
  * Utvid applikasjonen med mulighet til å legge til en ny bruker med et spesifisert navn.
+ * Det må også sendes inn et brukernavn, men det behøves ikke skrives inn av brukeren.
  * Ved vellykket innsending skal det vises en beskjed til brukeren om at innsendingen var vellykket.
  * 
  * Tips: For å sende inn data må vi bruke POST som metode i fetch.

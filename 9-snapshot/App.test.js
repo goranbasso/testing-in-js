@@ -18,7 +18,7 @@ import App from "./App";
  * https://jestjs.io/docs/en/snapshot-testing
  *
  * Kjør følgende kommando i din terminal for å starte:
- * npm run test:watch oppgave_xx_snapshot
+ * npm run test:watch 9-snapshot
  */
 
 describe("Snapshot testing", () => {
@@ -26,7 +26,7 @@ describe("Snapshot testing", () => {
    * Først en test som viser hvordan snapshots ser ut som JSX i testkode. (Det er parameteret til toMatchInlineSnapshot())
    */
   it("Rendered app should match stored snapshot", () => {
-    const tree = renderer.create(<App />).toJSON();
+    const tree = renderer.create(<App />).toJSON()
     expect(tree).toMatchInlineSnapshot(`
       <div>
         Snapshot test
@@ -44,7 +44,7 @@ describe("Snapshot testing", () => {
   it("Example on how to generate an inline snapshot", () => {
     const tree = renderer
       .create(<App message={"we're going to generate a new inline snapshot"} />)
-      .toJSON();
+      .toJSON()
 
     expect(tree).toMatchInlineSnapshot(`
       <div>
@@ -83,7 +83,7 @@ describe("Snapshot testing", () => {
       createdAt: new Date(328492800000),
       id: 8,
       name: "Steven Gerrard",
-    };
+    }
 
     expect(user).toMatchInlineSnapshot(`
       Object {
@@ -104,7 +104,7 @@ describe("Snapshot testing", () => {
       createdAt: new Date(),
       id: Math.floor(Math.random() * 20),
       name: "Roberto Firmino",
-    };
+    }
 
     expect(user).toMatchSnapshot({
       createdAt: expect.any(Date),
