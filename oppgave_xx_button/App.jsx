@@ -12,8 +12,11 @@ const App = () => {
   }, [])
 
   const toggleSpooky = () => {
-    const randomSpooky = Math.random() >= 0.5
-    setSpooky(randomSpooky)
+    setSpooky(!spooky)
+  }
+
+  const setSpookyExplicit = (state) => {
+    setSpooky(state)
   }
 
   const buttonDisplayText = () => {
@@ -22,7 +25,10 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={toggleSpooky} type={"button"}>{buttonDisplayText()}</button>
+      <button onClick={toggleSpooky} type={"button"} data-testid={"spooky-button"}>{buttonDisplayText()}</button>
+      <br />
+      <button onClick={() => setSpookyExplicit(false)} type={"button"} data-testid={"spooky-false-button"}>{cat}</button>
+      <button onClick={() => setSpookyExplicit(true)} type={"button"} data-testid={"spooky-true-button"}>{ghost}</button>
     </div>
   )
 }

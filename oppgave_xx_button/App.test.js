@@ -19,12 +19,9 @@ import App, {ghost, cat} from './App';
  * describe() lar oss definere et sett av tester, som kjører sammen
  */
 describe('Test of button behaviour', () => {
-  beforeAll(() => {
-    render(<App />)
-  })
 
   const assertButtonText = (text) => {
-    expect(screen.getByRole('button').innerHTML).toMatch(text)
+    expect(screen.queryByTestId('spooky-button').innerHTML).toMatch(text)
   }
 
   /**
@@ -33,7 +30,7 @@ describe('Test of button behaviour', () => {
    */
   let buttonToggle = false;
   const clickButton = () => {
-    userEvent.click(screen.getByRole('button'))
+    userEvent.click(screen.queryByTestId('spooky-button'))
     buttonToggle = !buttonToggle
   }
 
@@ -46,6 +43,7 @@ describe('Test of button behaviour', () => {
    * Her er det en feil i applikasjonen som gjør at testen vil være ustabil.
    */
   it('Button has the expected text when clicked', () => {
+    render(<App />)
     assertButtonText(cat)
     for (let i = 0; i < 3; i++) {
       clickButton()
@@ -64,7 +62,15 @@ describe('Test of button behaviour', () => {
    * De andre testene skal fortsatt være grønne.
    */
   it('Has two buttons that set the state explicitly', () => {
-    // Skriv en test, og utvid applikasjonen
-    fail('Not implemented')
+    render(<App />)
+    assertButtonText(cat)
+    clickButton()
+    assertButtonText(ghost)
+
+    userEvent.click(screen.queryByTestId('spooky-false-button'))
+    assertButtonText(cat)
+
+    userEvent.click(screen.queryByTestId('spooky-true-button'))
+    assertButtonText(ghost)
   })
 })
