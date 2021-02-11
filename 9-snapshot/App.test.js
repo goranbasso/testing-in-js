@@ -103,16 +103,6 @@ describe("Snapshot testing", () => {
         "name": "Roberto Firmino",
       }
     `);
-
-    /*
-    expect(user).toMatchInlineSnapshot(`
-      Object {
-        "createdAt": Any<Date>,
-        "id": Any<Number>,
-        "name": "Roberto Firmino",
-      }
-    `)
-     */
   });
 
   /**

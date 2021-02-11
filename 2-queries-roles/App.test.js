@@ -12,30 +12,30 @@ import App from './App'
  * npm run test:watch oppgave2
  */
 
- /**
-  * Litt om roller for de interesserte:
-  * Et element sin rolle kan være implisitt eller eksplisitt.
-  * Roller brukes blant annet av skjermlesere, og indikerer funksjonaliteten til elementet.
-  * 
-  * En <button /> har implisitt rolle "button", altså trenger vi ikke å definere denne rollen. Den er semantisk riktig.
-  * Vi kan lage en <div> som har en onClick-metode, og dermed kan fungere som en knapp, og se ut som en knapp hvis vi styler den,
-  * men en skjermleser vil ikke kunne vite at dette er en knapp, og brukeren vil da ikke kunne bruke denne funksjonaliteten.
-  * Denne er ikke semantisk riktig, den har egenskaper som ikke er indikert av HTML-elementet som brukes.
-  * Da er det mulig å sette rollen eksplisitt med <div tabindex="0" role="button" /> og da blir dette tolket som en "button" av en skjermleser.
-  * 
-  * Vi bør så mye som mulig unngå å sette roller eksplisitt, bruk alltid semantisk riktige elementer der det er mulig.
-  * 
-  * Les gjerne mer om roller her 
-  * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
-  * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
-  * 
-  * Semtantikk
-  * https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html
-  * 
-  * I Norge er det krav om universell utforming for nettløsninger.
-  * Les mer her:
-  * https://www.uutilsynet.no/regelverk/gjeldende-regelverk-og-krav/746
-  */
+/**
+ * Litt om roller for de interesserte:
+ * Et element sin rolle kan være implisitt eller eksplisitt.
+ * Roller brukes blant annet av skjermlesere, og indikerer funksjonaliteten til elementet.
+ * 
+ * En <button /> har implisitt rolle "button", altså trenger vi ikke å definere denne rollen. Den er semantisk riktig.
+ * Vi kan lage en <div> som har en onClick-metode, og dermed kan fungere som en knapp, og se ut som en knapp hvis vi styler den,
+ * men en skjermleser vil ikke kunne vite at dette er en knapp, og brukeren vil da ikke kunne bruke denne funksjonaliteten.
+ * Denne er ikke semantisk riktig, den har egenskaper som ikke er indikert av HTML-elementet som brukes.
+ * Da er det mulig å sette rollen eksplisitt med <div tabindex="0" role="button" /> og da blir dette tolket som en "button" av en skjermleser.
+ * 
+ * Vi bør så mye som mulig unngå å sette roller eksplisitt, bruk alltid semantisk riktige elementer der det er mulig.
+ * 
+ * Les gjerne mer om roller her 
+ * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques
+ * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/button_role
+ * 
+ * Semtantikk
+ * https://developer.mozilla.org/en-US/docs/Glossary/Semantics#semantics_in_html
+ * 
+ * I Norge er det krav om universell utforming for nettløsninger.
+ * Les mer her:
+ * https://www.uutilsynet.no/regelverk/gjeldende-regelverk-og-krav/746
+ */
 
 /**
  * Først en test for å sjekke at applikasjonen vår faktisk kjører.
