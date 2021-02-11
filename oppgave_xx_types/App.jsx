@@ -30,7 +30,6 @@ const App = (props) => {
 
   const onCalculate = () => {
     const calculated = props.calc(paramA, paramB)
-    // const calculated = props.calc(parseInt(paramA), parseInt(paramB))
     setResult(calculated)
   }
 

@@ -49,7 +49,8 @@ describe('Multiplication-table works as expected', () => {
   }
 
   /**
-   * Vi kan nøste describe-setninger for å gruppere test-caser
+   * Vi kan nøste describe-setninger for å gruppere test-caser, og definere variabler som vi gjenbruker
+   * i de indre it-setningene.
    */
   describe('Multiplication-table displays the correct default values', () => {
     const number = 5
@@ -76,6 +77,7 @@ describe('Multiplication-table works as expected', () => {
      */
     it.each(numbers)('The third column is the nth power of number, where n is the first column', () => {
       // Skriv en test, som bruker en ny egendefinert matcher, og utvid applikasjonen
+      fail('Not implemented')
     })
   })
 
@@ -86,6 +88,7 @@ describe('Multiplication-table works as expected', () => {
    */
   describe('Multiplication-table displays the correct values for custom props', () => {
     // Skriv flere tester, som sjekker at vi kan sende inn egendefinerte props, og tabellen vil ha de riktige verdiene
+    fail('Not implemented')
   })
 })
 

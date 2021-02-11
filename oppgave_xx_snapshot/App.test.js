@@ -123,6 +123,7 @@ describe("Snapshot testing", () => {
    */
   it("Rendered app should match snaphot stored in file", () => {
     // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil
+    fail('Not implemented')
   });
 
   /**
@@ -130,5 +131,6 @@ describe("Snapshot testing", () => {
    */
   it("Rendered app with custom props should match snapshot stored in file", () => {
     // Skriv en test som genererer, og sjekker opp mot et snapshot lagret i en fil, med custom props
+    fail('Not implemented')
   });
 });

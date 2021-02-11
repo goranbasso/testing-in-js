@@ -56,18 +56,8 @@ describe('Test of .any() (type-safety)', () => {
    * Skriv en test som viser at funksjonen returnerer forventet verdi og type.
    */
   it('calc-function returns the expected value', () => {
-    // implement this!
-
-    // const paramAInput = screen.getByTestId('param-a-input')
-    // const paramBInput = screen.getByTestId('param-b-input')
-    // const calcButton = screen.getByRole('button')
-    // const resultInput = screen.getByLabelText(/Result:/)
-    //
-    // fireEvent.change(paramAInput, { target: { value: '4' }})
-    // fireEvent.change(paramBInput, { target: { value: '5' }})
-    // fireEvent(calcButton, new MouseEvent('click', { bubbles: true, cancelable: true }))
-    // expect(resultInput.value).toEqual(expect.any(Number)) // hmm this does not quite work
-    // expect(resultInput.value).toEqual("9")
+    // Skriv en test
+    fail('Not implemented')
   })
 
   /**
@@ -80,6 +70,7 @@ describe('Test of .any() (type-safety)', () => {
   it('calc-function returns multiple expected values', () => {
     // Utvid applikasjonen med flere resultater fra calculate, og skriv en test for dette
     // Her må nok applikasjonen endres, og noen av de andre testene, slik at man kan spørre etter spesifikke resultater
+    fail('Not implemented')
   })
 
   /**
@@ -88,5 +79,6 @@ describe('Test of .any() (type-safety)', () => {
    */
   it('date test', () => {
     // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
+    fail('Not implemented')
   })
 })

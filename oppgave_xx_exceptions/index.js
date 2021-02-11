@@ -20,7 +20,7 @@ export function throwsOnNegativeNumbers(number) {
 }
 
 export function httpResponse(httpCode) {
-  // implement! should throw with appropriate messages on common http error codes,
-  // and return appropriate messages on successful http status codes
+  // Implementer en funksjon som tar inn HTTP statuskoder, som returnerer en passende melding,
+  // og kaster en feil dersom det er en feilkode
   // https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 }

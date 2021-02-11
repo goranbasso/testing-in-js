@@ -27,8 +27,6 @@ const App = (props) => {
 
   const onLoginClicked = () => {
     console.log('login')
-    // eslint-disable-next-line react/prop-types
-    // props.login(username, password)
     login(username, password)
   }
 

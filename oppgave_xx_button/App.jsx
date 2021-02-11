@@ -14,7 +14,6 @@ const App = () => {
   const toggleSpooky = () => {
     const randomSpooky = Math.random() >= 0.5
     setSpooky(randomSpooky)
-    // setSpooky(!spooky)
   }
 
   const buttonDisplayText = () => {

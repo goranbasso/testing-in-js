@@ -41,6 +41,7 @@ it('Renders the correct text', () => {
  */
 it('Renders the correct text when passed as props', () => {
   // Skriv en test
+  fail('Not implemented')
 })
 
 /**
@@ -49,4 +50,5 @@ it('Renders the correct text when passed as props', () => {
  */
 it('Renders multiple different text-contents when passed as props', () => {
   // Her må nok return-uttrykket i App-funksjonen, og props utvides
+  fail('Not implemented')
 })
