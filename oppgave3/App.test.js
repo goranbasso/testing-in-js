@@ -77,7 +77,7 @@ it('Lists the users Anders and Gøran', async () => {
 /**
  * En test som sjekker at det finnes ytterligere brukere i mocked data.
  * 
- * Her må dere gjøre endringer i den mockede dataen i handlers.js
+ * Her må dere gjøre endringer i den mockede dataen i handlers.js.
  */
 it('Lists the users Sigve and Frode', async () => {
   render(<App />)

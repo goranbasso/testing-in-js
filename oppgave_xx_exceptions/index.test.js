@@ -44,7 +44,7 @@ describe('Test of .toThrow() (exception handling)', () => {
   })
 
   /**
-   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber())
+   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber()).
    */
   it('isNumerical() identifies numbers correctly', () => {
     // Skriv en test som sjekker at isNumerical() returnerer riktig
@@ -53,7 +53,7 @@ describe('Test of .toThrow() (exception handling)', () => {
 
   /**
    * Skriv noen tester som forsikrer at httpResponse() kaster på riktige http-koder.
-   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et utvalg.
+   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et fornuftig utvalg.
    */
   it('httpResponse() should throw appropriate messages on http error codes', () => {
     // Dette er gjerne 400 og 500 statuskoder

@@ -20,7 +20,7 @@ import App, {login} from './App';
 describe('Test of .toHaveBeenCalled()', () => {
 
   /**
-   * Vi mocker et funksjonskall med jest.fn()
+   * Vi mocker et funksjonskall med jest.fn().
    */
   const loginFunc = jest.fn((username, password) => login(username, password))
 
@@ -54,7 +54,7 @@ describe('Test of .toHaveBeenCalled()', () => {
    * For at applikasjonen vår skal fungere, trenger vi å gjøre et redirect-kall ved en vellykket innlogging.
    * Vi ønsker å verifisere at kallet som skal redirecte oss faktisk blir kalt riktig, i henhold til login-funksjonen.
    * Her må appen utvides med en ny funksjon som redirecter (trenger ikke faktisk gjøre en redirect, men det skal finnes
-   * en funksjon som blir kalt som følge av login-funksjonen)
+   * en funksjon som blir kalt som følge av login-funksjonen).
    * Skriv en test som verifiserer oppførselen, og utvid appen med en ny redirect-funksjon.
    */
   describe('redirect-function is called appropriately', () => {

@@ -75,7 +75,7 @@ describe('Test of .any() (type-safety)', () => {
 
   /**
    * Utvid applikasjonen, slik at vi har en knapp som uthenter nåværende dato og tidpsunkt, og viser denne på siden.
-   * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som
+   * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som henter datoen.
    */
   it('date test', () => {
     // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
