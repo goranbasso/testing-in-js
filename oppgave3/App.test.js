@@ -52,7 +52,7 @@ import App from './App'
   * 
   * Merk at det også finnes tester som gjør kall mot eksterne tjenester, og sjekker at responsen fra de er riktig,
   * og blir behandlet riktig av en applikasjon.
-  * Dette er gjerne del av integrajsonstester, eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
+  * Dette er gjerne del av integrasjonstester, og / eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
   *
   */
 
@@ -90,7 +90,7 @@ it('Lists the users Sigve and Frode', async () => {
  * Det er behov for å utvide bruker-APIet, slik at brukere også har et brukernavn.
  * Skriv en test som bekrefter at vi viser navn og brukernavn for hver bruker, og utvidt applikasjonen slik at testen passerer.
  */
-it('Lists the last and first names of the users', () => {
+it('Lists the names and usernames of the users', () => {
   // Skriv en test, og utvid applikasjonen slik at den viser brukernavn sammen med fornavn.
   fail('Not implemented')
 })
