@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from "prop-types";
+import React, {useEffect, useState} from 'react'
+import PropTypes from "prop-types"
 
 export const getNumbersFromZeroToN = (n) => {
   return Array.from(Array(n + 1).keys())

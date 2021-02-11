@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
-import { wrongLoginFunction} from './login'
+import React, {useEffect, useState} from 'react'
+import PropTypes from 'prop-types'
+import {correctLoginFunction, redirectFunction, wrongLoginFunction} from './login'
 
 const App = (props) => {
 
@@ -23,8 +23,10 @@ const App = (props) => {
   }
 
   const onLoginClicked = () => {
-    console.log('login')
-    wrongLoginFunction()
+    setLoginSuccess(props.login(username, password))
+    if (props.login(username, password)) {
+      props.redirect()
+    }
   }
 
   return (
@@ -50,8 +52,8 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  login: login,
-  redirect: redirect
+  login: correctLoginFunction,
+  redirect: redirectFunction
 }
 
 export default App

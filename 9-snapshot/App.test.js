@@ -1,6 +1,6 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import App from "./App";
+import { render } from "@testing-library/react"
+import React from "react"
+import App from "./App"
 
 /**
  * Dette testsettet er ment å demonstrere hvordan man kan forenkle testingen ved å benytte snapshots.
@@ -117,18 +117,14 @@ it("Object has the correct types", () => {
  * https://jestjs.io/docs/en/snapshot-testing
  */
 it("Rendered app should match snaphot stored in file", () => {
-  const tree = renderer
-    .create(<App />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+  const { container } = render(<App />)
+  expect(container.firstChild).toMatchSnapshot()
 })
 
 /**
  * Skriv en lignende test som over, men med egendefinerte verdier inn som props til applikasjonen.
  */
 it("Rendered app with custom props should match snapshot stored in file", () => {
-  const tree = renderer
-    .create(<App message={"snapshot stored in file"} />)
-    .toJSON();
-  expect(tree).toMatchSnapshot();
+  const { container } = render(<App message={"snapshot stored in file"} />)
+  expect(container.firstChild).toMatchSnapshot()
 })

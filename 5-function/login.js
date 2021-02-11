@@ -5,5 +5,9 @@ export const wrongLoginFunction = (username, password) => {
 
 export const correctLoginFunction = (username, password) => {
   console.log(`logging in with username ${username} and password ${password}`)
-  return (username != null && username.length > 0) || (password != null && password.length > 0)
+  return username != null && username.length > 0 && password != null && password.length > 0
+}
+
+export const redirectFunction = () => {
+  console.log('login successful, redirecting...')
 }

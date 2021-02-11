@@ -1,9 +1,9 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import App from './App';
-import sum from './helpers'
-import App, {difference, division, exponentiation, getDate, product, sum} from './App';
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from "@testing-library/user-event"
+import App from './App'
+import {sum, difference, division, exponentiation, getDate} from './helpers'
+import {product} from "../0-warmup/functions"
 
 /**
  * Dette testsettet er ment å vise hvordan man kan forsikre typesikkerhet gjennom testing i JavaScript.
@@ -30,7 +30,7 @@ const getDateCall = jest.fn(() => getDate())
  */
 it('calc-function has been called', () => {
   // Vi sender inn det mockete funksjonskallet
-  render(<App calcSum={calcSumCall} />)
+  render(<App calculateSum={calcSumCall} />)
   const calcButton = screen.getByText(/calculate!/)
   userEvent.click(calcButton)
   expect(calcSumCall).toHaveBeenCalled()
@@ -40,7 +40,7 @@ it('calc-function has been called', () => {
  * Her sjekker vi at parameterene vi sender inn til testen er rett.
  */
 it('calc-function has been called with number-parameters', () => {
-  render(<App calcSum={calcSumCall} />)
+  render(<App calculateSum={calcSumCall} />)
 
   const paramAInput = screen.getByTestId('param-a-input')
   const paramBInput = screen.getByTestId('param-b-input')
@@ -56,7 +56,7 @@ it('calc-function has been called with number-parameters', () => {
  * Skriv en test som viser at funksjonen returnerer forventet verdi og type.
  */
 it('calc-function returns the expected value', () => {
-  render(<App calcSum={calcSumCall} />)
+  render(<App calculateSum={calcSumCall} />)
 
   const paramAInput = screen.getByTestId('param-a-input')
   const paramBInput = screen.getByTestId('param-b-input')
@@ -78,11 +78,11 @@ it('calc-function returns the expected value', () => {
  */
 it('calc-function calculates multiple expected values', () => {
   render(<App
-    calcSum={calcSumCall}
-    calcDifference={calcDifferenceCall}
-    calcProduct={calcProductCall}
-    calcDivision={calcDivisionCall}
-    calcExponentiation={calcExponentiationCall}
+    calculateSum={calcSumCall}
+    calculateDifference={calcDifferenceCall}
+    calculateProduct={calcProductCall}
+    calculateDivision={calcDivisionCall}
+    calculateExponentiation={calcExponentiationCall}
   />)
 
   const paramAInput = screen.getByTestId('param-a-input')

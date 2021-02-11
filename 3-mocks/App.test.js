@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import App from './App'
-import userEvent from "@testing-library/user-event";
+import userEvent from "@testing-library/user-event"
 
 /**
  * Dette testsettet er ment å demonstrere hvordan man kan bruke mocking for å teste komponenter, uten å måtte

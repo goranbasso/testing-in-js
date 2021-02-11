@@ -1,5 +1,7 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
+import React, {useEffect, useState} from 'react'
+import PropTypes from 'prop-types'
+import {difference, division, exponentiation, getDate, sum} from './helpers'
+import {product} from "../0-warmup/functions"
 
 const App = (props) => {
 

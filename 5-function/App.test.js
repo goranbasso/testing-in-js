@@ -1,8 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import userEvent from "@testing-library/user-event";
-import App from './App';
-import { correctLoginFunction } from './login'
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import userEvent from "@testing-library/user-event"
+import App from './App'
+import {correctLoginFunction, redirectFunction} from './login'
 
 /**
  * Dette testsettet er ment å vise hvordan man kan bekrefte at gitte funksjoner har blitt kalt som resultat av
@@ -39,31 +39,6 @@ it('login function has been called', () => {
   userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
   userEvent.click(screen.getByRole('button'))
   expect(loginFunc).toHaveBeenCalled()
-})
-
-/**
- * Det finnes logikk i login-funksjonen vår, som gjør at funksjonen returnerer true eller false basert på om det er
- * gyldige brukernavn og passord (i dette tilfellet, bare at brukernavn og passord ikke er tomme).
- * Skriv en test som sjekker at login-funksjonen returnerer riktig med riktige parametere.
- */
-it('login function returns the correct values', () => {
-  render(<App login={loginFunc} />)
-  userEvent.click(screen.getByRole('button'))
-  expect(loginFunc).toHaveReturnedWith(false)
-
-  userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
-  userEvent.click(screen.getByRole('button'))
-  expect(loginFunc).toHaveReturnedWith(false)
-
-  userEvent.type(screen.queryByTestId('username-input'), '')
-  userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
-  userEvent.click(screen.getByRole('button'))
-  expect(loginFunc).toHaveReturnedWith(false)
-
-  userEvent.type(screen.queryByTestId('username-input'), 'gorbas')
-  userEvent.type(screen.queryByTestId('password-input'), 'hunter13')
-  userEvent.click(screen.getByRole('button'))
-  expect(loginFunc).toHaveReturnedWith(true)
 })
 
 /**

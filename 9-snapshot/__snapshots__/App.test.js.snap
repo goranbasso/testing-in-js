@@ -1,5 +1,31 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Object has the correct types 1`] = `
+Object {
+  "createdAt": Any<Date>,
+  "id": Any<Number>,
+  "name": "Roberto Firmino",
+}
+`;
+
+exports[`Rendered app should match snaphot stored in file 1`] = `
+<div>
+  Snapshot test
+  <span>
+    hei hei hei
+  </span>
+</div>
+`;
+
+exports[`Rendered app with custom props should match snapshot stored in file 1`] = `
+<div>
+  Snapshot test
+  <span>
+    snapshot stored in file
+  </span>
+</div>
+`;
+
 exports[`Snapshot testing Object has the correct types 1`] = `
 Object {
   "createdAt": Any<Date>,

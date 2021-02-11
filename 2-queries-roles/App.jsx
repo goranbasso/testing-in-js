@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 const App = (props) => {
   return (
@@ -17,7 +17,7 @@ const App = (props) => {
         <a href={props.anotherLink}>Another cool link</a>
       </form>
     </div>
-  );
+  )
 }
 
 App.propTypes = {
