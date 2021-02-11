@@ -10,9 +10,13 @@ const App = () => {
 
   useEffect(() => {
     let mounted = true
-    getAllUsers().then(users => {
-      if (mounted) setUsers(users)
-    })
+    const fetchData = async () => {
+      const users = await getAllUsers()
+      if (mounted) {
+        setUsers(users)
+      }
+    }
+    fetchData()
     return () => mounted = false
   }, [])
 
