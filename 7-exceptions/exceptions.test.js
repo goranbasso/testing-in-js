@@ -12,10 +12,7 @@ import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumb
  */
 
 
-/**
- * describe() lar oss definere et sett av tester, som kjører sammen.
- */
-describe('Test of .toThrow() (exception handling)', () => {
+describe('Test of SSN and numbers', () => {
 
   /**
    * En fungerende test, for en funksjon som påser at en streng er et norsk personnummer.
@@ -30,6 +27,8 @@ describe('Test of .toThrow() (exception handling)', () => {
 
   /**
    * En rekke tester for å sjekke at funksjonen kaster på negative tall.
+   * 
+   * Denne funksjonen må implementeres riktig.
    */
   it('throwsOnNegativeNumbers() should not throw on positive numbers', () => {
     expect(() => throwsOnNegativeNumbers(1)).not.toThrow(expect.any(Error))
@@ -50,18 +49,21 @@ describe('Test of .toThrow() (exception handling)', () => {
     // Skriv en test som sjekker at isNumerical() returnerer riktig
     throw new Error('Not implemented')
   })
+})
 
+describe('httpResponse()', () => {
   /**
    * Test at httpResponse() kaster feil på riktige http-koder. En gitt kode skal returnere en spesifikk beskrivelse av feilen.
    * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et utvalg.
    */
-  it('httpResponse() should throw appropriate messages on http error codes', () => {
+  it('should throw appropriate messages on http error codes', () => {
     // Dette er gjerne 400 og 500 statuskoder
     throw new Error('Not implemented')
   })
-
-  it('httpResponse() should not throw and return appropriate messages on successful http status codes', () => {
+  
+  it('should not throw and return appropriate messages on successful http status codes', () => {
     // Dette er gjerne 100, 200, og 300 statuskoder
     throw new Error('Not implemented')
   })
 })
+  

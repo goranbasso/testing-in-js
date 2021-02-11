@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
-export const sum = (a, b) => {
-  return a + b
-}
-
 const App = (props) => {
 
   const [paramA, setParamA] = useState([])
@@ -25,7 +21,7 @@ const App = (props) => {
   }
 
   const onCalculate = () => {
-    const calculated = props.calc(paramA, paramB)
+    const calculated = props.calculate(paramA, paramB)
     setResult(calculated)
   }
 
@@ -52,11 +48,8 @@ const App = (props) => {
 }
 
 App.propTypes = {
-  calc: PropTypes.func
+  calculate: PropTypes.func
 }
 
-App.defaultProps = {
-  calc: sum
-}
 
 export default App
