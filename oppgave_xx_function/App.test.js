@@ -56,7 +56,7 @@ describe('Test of .toHaveBeenCalled()', () => {
    */
   describe('redirect-function is called appropriately', () => {
     // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
-    it('redirect-function is not on unsuccessful login', () => {
+    it('redirect-function is not called on unsuccessful login', () => {
       fail('Not implemented')
     })
     it('redirect-function is called on successful login', () => {
