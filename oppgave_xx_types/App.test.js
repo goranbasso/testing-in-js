@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
-import App, {sum} from './App';
+import App, {difference, division, exponentiation, getDate, product, sum} from './App';
 
 /**
  * Dette testsettet er ment å vise hvordan man kan forsikre typesikkerhet gjennom testing i JavaScript.
@@ -21,43 +21,54 @@ describe('Test of .any() (type-safety)', () => {
   /**
    * For å kunne teste funksjonen vår, er vi nødt til å wrappe den i et jest.fn()-kall, slik vi ser under.
    */
-  const calcCall = jest.fn((a, b) => sum(a, b))
-
-  /**
-   * Før hver test, kjører vi ett render()-kall med applikasjonen vår, hvor vi sender inn jest.fn()-funksjonen over.
-   */
-  beforeEach(() => {
-    render(<App calc={calcCall} />)
-  })
+  const calcSumCall = jest.fn((a, b) => sum(a, b))
+  const calcDifferenceCall = jest.fn((a, b) => difference(a, b))
+  const calcProductCall = jest.fn((a, b) => product(a, b))
+  const calcDivisionCall = jest.fn((a, b) => division(a, b))
+  const calcExponentiationCall = jest.fn((a, b) => exponentiation(a, b))
+  const getDateCall = jest.fn(() => getDate())
 
   /**
    * Her sjekker vi at funksjonen har blitt kalt i det hele tatt.
    */
   it('calc-function has been called', () => {
-    userEvent.click(screen.getByRole('button'))
-    expect(calcCall).toHaveBeenCalled()
+    render(<App calcSum={calcSumCall} />)
+    const calcButton = screen.getByText(/calculate!/)
+    userEvent.click(calcButton)
+    expect(calcSumCall).toHaveBeenCalled()
   })
 
   /**
    * Her sjekker vi at parameterene vi sender inn til testen er rett.
    */
   it('calc-function has been called with number-parameters', () => {
+    render(<App calcSum={calcSumCall} />)
+
     const paramAInput = screen.getByTestId('param-a-input')
     const paramBInput = screen.getByTestId('param-b-input')
-    const calcButton = screen.getByRole('button')
+    const calcButton = screen.getByText(/calculate!/)
 
     userEvent.type(paramAInput, '4')
     userEvent.type(paramBInput, '5')
     userEvent.click(calcButton);
-    expect(calcCall).toHaveBeenCalledWith(expect.any(Number), expect.any(Number))
+    expect(calcSumCall).toHaveBeenCalledWith(expect.any(Number), expect.any(Number))
   })
 
   /**
    * Skriv en test som viser at funksjonen returnerer forventet verdi og type.
    */
   it('calc-function returns the expected value', () => {
-    // Skriv en test
-    fail('Not implemented')
+    render(<App calcSum={calcSumCall} />)
+
+    const paramAInput = screen.getByTestId('param-a-input')
+    const paramBInput = screen.getByTestId('param-b-input')
+    const calcButton = screen.getByText(/calculate!/)
+
+    userEvent.type(paramAInput, '4')
+    userEvent.type(paramBInput, '5')
+    userEvent.click(calcButton);
+    expect(calcSumCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcSumCall).toHaveReturnedWith(9)
   })
 
   /**
@@ -68,9 +79,36 @@ describe('Test of .any() (type-safety)', () => {
    * Skriv en test for dette, og utvid applikasjonen.
    */
   it('calc-function returns multiple expected values', () => {
-    // Utvid applikasjonen med flere resultater fra calculate, og skriv en test for dette
-    // Her må nok applikasjonen endres, og noen av de andre testene, slik at man kan spørre etter spesifikke resultater
-    fail('Not implemented')
+    render(<App
+      calcSum={calcSumCall}
+      calcDifference={calcDifferenceCall}
+      calcProduct={calcProductCall}
+      calcDivision={calcDivisionCall}
+      calcExponentiation={calcExponentiationCall}
+    />)
+
+    const paramAInput = screen.getByTestId('param-a-input')
+    const paramBInput = screen.getByTestId('param-b-input')
+    const calcButton = screen.getByText(/calculate!/)
+
+    userEvent.type(paramAInput, '4')
+    userEvent.type(paramBInput, '5')
+    userEvent.click(calcButton);
+
+    expect(calcSumCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcSumCall).toHaveReturnedWith(9)
+
+    expect(calcDifferenceCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcDifferenceCall).toHaveReturnedWith(-1)
+
+    expect(calcProductCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcProductCall).toHaveReturnedWith(20)
+
+    expect(calcDivisionCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcDivisionCall).toHaveReturnedWith(0.8)
+
+    expect(calcExponentiationCall).toHaveReturnedWith(expect.any(Number))
+    expect(calcExponentiationCall).toHaveReturnedWith(1024)
   })
 
   /**
@@ -78,7 +116,10 @@ describe('Test of .any() (type-safety)', () => {
    * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som henter datoen.
    */
   it('date test', () => {
-    // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
-    fail('Not implemented')
+    render(<App getDate={getDateCall} />)
+
+    userEvent.click(screen.getByText(/Get the date/))
+
+    expect(getDateCall).toHaveReturnedWith(expect.any(Date))
   })
 })
