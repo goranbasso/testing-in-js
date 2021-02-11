@@ -1,4 +1,4 @@
-import {assertNorwegianNationalIdentityNumber, isNumerical, throwsOnNegativeNumbers} from "./index";
+import {assertNorwegianNationalIdentityNumber, httpResponse, isNumerical, throwsOnNegativeNumbers} from "./index";
 
 /**
  * Dette testsettet er ment å vise hvordan man kan oppdage og håndtere Exceptions som blir kastet av koden.
@@ -47,8 +47,13 @@ describe('Test of .toThrow() (exception handling)', () => {
    * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber()).
    */
   it('isNumerical() identifies numbers correctly', () => {
-    // Skriv en test som sjekker at isNumerical() returnerer riktig
-    fail('Not implemented')
+    expect(isNumerical(1)).toBeTruthy()
+    expect(isNumerical('1')).toBeTruthy()
+    expect(isNumerical('01')).toBeTruthy()
+    expect(isNumerical('hei')).toBeFalsy()
+    expect(isNumerical('0ab2')).toBeFalsy()
+    expect(isNumerical(NaN)).toBeFalsy()
+    expect(isNumerical(null)).toBeFalsy()
   })
 
   /**
@@ -56,12 +61,32 @@ describe('Test of .toThrow() (exception handling)', () => {
    * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et fornuftig utvalg.
    */
   it('httpResponse() should throw appropriate messages on http error codes', () => {
-    // Dette er gjerne 400 og 500 statuskoder
-    fail('Not implemented')
+    expect(() => httpResponse(400)).toThrow('400 Bad Request')
+    expect(() => httpResponse(401)).toThrow('401 Unauthorized')
+    expect(() => httpResponse(403)).toThrow('403 Forbidden')
+    expect(() => httpResponse(404)).toThrow('404 Not Found')
+    expect(() => httpResponse(408)).toThrow('408 Request Timeout')
+    expect(() => httpResponse(418)).toThrow('418 I\'m a teapot')
+    expect(() => httpResponse(500)).toThrow('500 Internal Server Error')
+    expect(() => httpResponse(502)).toThrow('502 Bad Gateway')
+    expect(() => httpResponse(503)).toThrow('503 Service Unavailable')
+    expect(() => httpResponse(504)).toThrow('504 Gateway Timeout')
+
   })
 
-  it('httpResponse() should not throw and return appropriate messages on successful http status codes', () => {
-    // Dette er gjerne 100, 200, og 300 statuskoder
-    fail('Not implemented')
+  /**
+   * Merk at for å kunne sjekke at en vellykket httpResponse() returnerer riktig, vil det være nødvendig å benytte
+   * jest.fn()-funksjonen for å kunne fange resultatet av kallet.
+   * Derfor kan det være greit å gjøre denne oppgaven (eller bare sjekke at den ikke kaster feil) etter funksjonsoppgaven
+   */
+  it('httpResponse() should not throw on successful http status codes', () => {
+    expect(() => httpResponse(100)).not.toThrow()
+    expect(() => httpResponse(200)).not.toThrow()
+    expect(() => httpResponse(201)).not.toThrow()
+    expect(() => httpResponse(202)).not.toThrow()
+    expect(() => httpResponse(302)).not.toThrow()
+    expect(() => httpResponse(305)).not.toThrow()
+    expect(() => httpResponse(307)).not.toThrow()
+    expect(() => httpResponse(308)).not.toThrow()
   })
 })
