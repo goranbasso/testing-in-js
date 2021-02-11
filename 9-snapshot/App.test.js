@@ -25,7 +25,7 @@ import App from "./App"
  * Først en test som viser hvordan snapshots ser ut som JSX i testkode. (Det er parameteret til toMatchInlineSnapshot())
  */
 it("Rendered app should match stored snapshot", () => {
-  const { container } = render(<App />);
+  const { container } = render(<App />)
   expect(container.firstChild).toMatchInlineSnapshot(`
     <div>
       Snapshot test
