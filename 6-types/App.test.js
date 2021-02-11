@@ -59,13 +59,13 @@ describe('Test of .any() (type-safety)', () => {
 
   /**
    * Utvid applikasjonen, slik at calculate utregner flere verdier enn bare en sum.
-   * Vi ønsker flere resultater, for subtrahering, multiplisering, deling, og eksponensiering.
+   * Vi ønsker flere resultater, eksempelvis subtrahering, multiplisering, deling, og eksponensiering.
    * Eventuelt flere om du ønsker.
    * Disse resultatene skal vises på siden, og skal ha riktige typer og verdier.
    * Skriv en test for dette, og utvid applikasjonen.
    */
-  it('calc-function returns multiple expected values', () => {
-    // Utvid applikasjonen med flere resultater fra calculate, og skriv en test for dette
+  it('calc-function calculates multiple expected values', () => {
+    // Utvid applikasjonen med flere resultater gjennom calculate, og skriv en test for dette
     // Her må nok applikasjonen endres, og noen av de andre testene, slik at man kan spørre etter spesifikke resultater
     throw new Error('Not implemented')
   })
@@ -74,7 +74,7 @@ describe('Test of .any() (type-safety)', () => {
    * Utvid applikasjonen, slik at vi har en knapp som uthenter nåværende dato og tidpsunkt, og viser denne på siden.
    * Her må vi sjekke at det faktisk er et dato-objekt som blir sendt videre fra funksjonen som henter datoen.
    */
-  it('date test', () => {
+  it('date-function returns a date object', () => {
     // Skriv en test for dato-objekter, og utvid applikasjonen til å ha en knapp som uthenter og viser nåværende dato-tidspunkt
     throw new Error('Not implemented')
   })
