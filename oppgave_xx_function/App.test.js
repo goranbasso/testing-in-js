@@ -24,18 +24,15 @@ describe('Test of .toHaveBeenCalled()', () => {
    */
   const loginFunc = jest.fn((username, password) => login(username, password))
 
-  /**
-   * Vi sender inn vårt mockete funksjonskall til appen som props.
-   */
-  beforeAll(() => {
-    render(<App login={loginFunc} />)
-  })
 
   /**
    * En test for å bekrefte at login-funksjonen blir kalt når login-knappen blir trykket på.
    * En feil i applikasjonen gjør at den _mockete_ funksjonen vår aldri blir kalt.
    */
   it('login-function has been called', () => {
+    // Vi sender inn vårt mockete funksjonskall til appen som props.
+    render(<App login={loginFunc} />)
+
     userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
     userEvent.click(screen.getByRole('button'))
     expect(loginFunc).toHaveBeenCalled()

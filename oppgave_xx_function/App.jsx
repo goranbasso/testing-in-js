@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export const login = (username, password) => {
   console.log(`logging in with username ${username} and password ${password}`)
-  return username != null && username.length > 0 && password != null && password.length > 0
+  return (username != null && username.length > 0) || (password != null && password.length > 0)
 }
 
 const App = (props) => {

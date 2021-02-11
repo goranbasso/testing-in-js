@@ -19,9 +19,6 @@ import App, {ghost, cat} from './App';
  * describe() lar oss definere et sett av tester, som kjører sammen
  */
 describe('Test of button behaviour', () => {
-  beforeAll(() => {
-    render(<App />)
-  })
 
   const assertButtonText = (text) => {
     expect(screen.getByRole('button').innerHTML).toMatch(text)
@@ -46,6 +43,7 @@ describe('Test of button behaviour', () => {
    * Her er det en feil i applikasjonen som gjør at testen vil være ustabil.
    */
   it('Button has the expected text when clicked', () => {
+    render(<App />)
     assertButtonText(cat)
     for (let i = 0; i < 3; i++) {
       clickButton()

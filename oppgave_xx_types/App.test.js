@@ -24,16 +24,11 @@ describe('Test of .any() (type-safety)', () => {
   const calcCall = jest.fn((a, b) => sum(a, b))
 
   /**
-   * Før hver test, kjører vi ett render()-kall med applikasjonen vår, hvor vi sender inn jest.fn()-funksjonen over.
-   */
-  beforeEach(() => {
-    render(<App calc={calcCall} />)
-  })
-
-  /**
    * Her sjekker vi at funksjonen har blitt kalt i det hele tatt.
    */
   it('calc-function has been called', () => {
+    // Vi sender inn det mockete funksjonskallet
+    render(<App calc={calcCall} />)
     userEvent.click(screen.getByRole('button'))
     expect(calcCall).toHaveBeenCalled()
   })
@@ -42,6 +37,8 @@ describe('Test of .any() (type-safety)', () => {
    * Her sjekker vi at parameterene vi sender inn til testen er rett.
    */
   it('calc-function has been called with number-parameters', () => {
+    render(<App calc={calcCall} />)
+
     const paramAInput = screen.getByTestId('param-a-input')
     const paramBInput = screen.getByTestId('param-b-input')
     const calcButton = screen.getByRole('button')
