@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
+import { wrongLoginFunction} from './login'
 
 const App = (props) => {
 
@@ -23,6 +24,7 @@ const App = (props) => {
 
   const onLoginClicked = () => {
     console.log('login')
+    wrongLoginFunction()
   }
 
   return (
