@@ -75,7 +75,7 @@ it('Has a button with the text "Sign in"', () => {
  * Tips: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/forms/Basic_form_hints
  */
 it('Has a password field', () => {
-  
+  fail('Not implemented')
 })
 
 
@@ -97,7 +97,7 @@ it('Has a password field', () => {
  * 
  */
 it('Contains a link to a fun website', () => {
-  
+  fail('Not implemented')
 })
 
 /**

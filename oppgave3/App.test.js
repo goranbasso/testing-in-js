@@ -12,7 +12,7 @@ import App from './App'
  * 
  * Ta en titt i /mocks/-mappen, der ligger det en fil som heter handlers.js, hvor vi definerer hvilken respons
  * forskjellige endepunkter skal returnere.
- * Gjør vi et kall mot /users, gjennom fetch-APIet (getAllUsers()-funksjonen i App.jsx, vil vi få en respons
+ * Gjør vi et kall mot /users, gjennom fetch-APIet (getAllUsers()-funksjonen i App.jsx), vil vi få en respons
  * med HTTP-statuskode 200 OK, og en body som består av en liste av bruker-objekter.
  * 
  * Applikasjonen vår gjør dette kallet, og bruker innholdet av responsen.
@@ -21,7 +21,7 @@ import App from './App'
  * npm run test:watch oppgave3
  */
 
- /**
+/**
   * Litt om mocking av nettverkskall for de interesserte:
   * 
   * Det er vanlig å mocke selve funksjonen som gjør nettverkskall, for eksempel fetch()-metoden,
@@ -52,7 +52,7 @@ import App from './App'
   * 
   * Merk at det også finnes tester som gjør kall mot eksterne tjenester, og sjekker at responsen fra de er riktig,
   * og blir behandlet riktig av en applikasjon.
-  * Dette er gjerne del av integrajsonstester, eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
+  * Dette er gjerne del av integrasjonstester, og / eller ende-til-ende-tester, men det er utenfor scopen til denne workshoppen.
   *
   */
 
@@ -75,9 +75,9 @@ it('Lists the users Anders and Gøran', async () => {
 })
 
 /**
- * En test som sjekker at det finnes ytterligere brukere i mocked data.
+ * En test som sjekker at det finnes ytterligere brukere i mocket data.
  * 
- * Her må dere gjøre endringer i den mockede dataen i handlers.js
+ * Her må dere gjøre endringer i den mockete dataen i handlers.js.
  */
 it('Lists the users Sigve and Frode', async () => {
   render(<App />)
@@ -90,7 +90,7 @@ it('Lists the users Sigve and Frode', async () => {
  * Det er behov for å utvide bruker-APIet, slik at brukere også har et brukernavn.
  * Skriv en test som bekrefter at vi viser navn og brukernavn for hver bruker, og utvidt applikasjonen slik at testen passerer.
  */
-it('Lists the last and first names of the users', () => {
+it('Lists the names and usernames of the users', async () => {
   // Skriv en test, og utvid applikasjonen slik at den viser brukernavn sammen med fornavn.
   fail('Not implemented')
 })
@@ -102,7 +102,7 @@ it('Lists the last and first names of the users', () => {
  * Her må applikasjonen utvides til å gjøre et ekstra fetch-kall mot et nytt endepunkt (/apps),
  * som skal returnere en liste av applikasjonsnavn som vises i applikasjonen.
  */
-it('Lists the applications developed by the users', () => {
+it('Lists the applications developed by the users', async () => {
   // Skriv en test, og utvid applikasjonen og mocket data slik at den lister opp applikasjoner i tillegg
   fail('Not implemented')
 })
@@ -126,6 +126,6 @@ it('Lists the applications developed by the users', () => {
  * Tips: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body
  * 
  */
-it('Can add a new user', () => {
+it('Can add a new user', async () => {
   fail('Not implemented')
 })

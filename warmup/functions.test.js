@@ -40,11 +40,11 @@ it('sum() returns the sum of the two input variables', () => {
  */
 describe('product()', () => {
   it('returns the product of the two input variables', () => {
-
+    fail('Not implemented')
   })
   
   it('returns NaN if any of the input variables are not numbers', () => {
-
+    fail('Not implemented')
   })
 })
 

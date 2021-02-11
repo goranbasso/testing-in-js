@@ -20,22 +20,19 @@ import App, {login} from './App';
 describe('Test of .toHaveBeenCalled()', () => {
 
   /**
-   * Vi mocker et funksjonskall med jest.fn()
+   * Vi mocker et funksjonskall med jest.fn().
    */
   const loginFunc = jest.fn((username, password) => login(username, password))
 
-  /**
-   * Vi sender inn vårt mockete funksjonskall til appen som props.
-   */
-  beforeAll(() => {
-    render(<App login={loginFunc} />)
-  })
 
   /**
    * En test for å bekrefte at login-funksjonen blir kalt når login-knappen blir trykket på.
    * En feil i applikasjonen gjør at den _mockete_ funksjonen vår aldri blir kalt.
    */
   it('login-function has been called', () => {
+    // Vi sender inn vårt mockete funksjonskall til appen som props.
+    render(<App login={loginFunc} />)
+
     userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
     userEvent.click(screen.getByRole('button'))
     expect(loginFunc).toHaveBeenCalled()
@@ -47,23 +44,23 @@ describe('Test of .toHaveBeenCalled()', () => {
    * Skriv en test som sjekker at login-funksjonen returnerer riktig med riktige parametere.
    */
   it('login-function returns the correct values', () => {
-
+    fail('Not implemented')
   })
 
   /**
    * For at applikasjonen vår skal fungere, trenger vi å gjøre et redirect-kall ved en vellykket innlogging.
    * Vi ønsker å verifisere at kallet som skal redirecte oss faktisk blir kalt riktig, i henhold til login-funksjonen.
    * Her må appen utvides med en ny funksjon som redirecter (trenger ikke faktisk gjøre en redirect, men det skal finnes
-   * en funksjon som blir kalt som følge av login-funksjonen)
+   * en funksjon som blir kalt som følge av login-funksjonen).
    * Skriv en test som verifiserer oppførselen, og utvid appen med en ny redirect-funksjon.
    */
   describe('redirect-function is called appropriately', () => {
     // Merk at vi kan ha nøstede describe-setninger, for å gruppere test-caser som henger sammen.
-    it('redirect-function is not on unsuccessful login', () => {
-
+    it('redirect-function is not called on unsuccessful login', () => {
+      fail('Not implemented')
     })
     it('redirect-function is called on successful login', () => {
-
+      fail('Not implemented')
     })
   })
 })

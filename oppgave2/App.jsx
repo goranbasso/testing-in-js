@@ -7,8 +7,9 @@ const App = (props) => {
       <p>Hello {props.name}!</p>
       <p>Please sign in.</p>
       <form>
-        <label for="username">Username: </label><input id="username" placeholder="username"></input>
-        <input placeholder="password" type="password"></input>
+        <label htmlFor="username">Username: </label>
+        <input id="username" placeholder="username"/>
+        <input placeholder="password" type="password"/>
         <button>{props.name}</button>
       </form>
     </div>

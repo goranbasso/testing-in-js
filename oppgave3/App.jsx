@@ -9,15 +9,20 @@ const App = () => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
+    let mounted = true
     const fetchData = async () => {
-      setUsers(await getAllUsers())
+      const users = await getAllUsers()
+      if (mounted) {
+        setUsers(users)
+      }
     }
     fetchData()
+    return () => mounted = false
   }, [])
 
   return (
     <div>
-    <h1>Our fantastic users:</h1>
+      <h1>Our fantastic users:</h1>
       <ul>
         {
           users.map(user => <li key={user.name}><p>{user.name}</p></li>)

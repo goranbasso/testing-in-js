@@ -44,29 +44,24 @@ describe('Test of .toThrow() (exception handling)', () => {
   })
 
   /**
-   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber())
+   * Skriv en test for hjelpefunksjonen isNumerical() (benyttes av assertNorwegianNationalIdentityNumber()).
    */
   it('isNumerical() identifies numbers correctly', () => {
     // Skriv en test som sjekker at isNumerical() returnerer riktig
-
-    // expect(isNumerical(1)).toBeTruthy()
-    // expect(isNumerical('1')).toBeTruthy()
-    // expect(isNumerical('01')).toBeTruthy()
-    // expect(isNumerical('hei')).toBeFalsy()
-    // expect(isNumerical('0ab2')).toBeFalsy()
-    // expect(isNumerical(NaN)).toBeFalsy()
-    // expect(isNumerical(null)).toBeFalsy()
+    fail('Not implemented')
   })
 
   /**
    * Skriv noen tester som forsikrer at httpResponse() kaster på riktige http-koder.
-   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et utvalg.
+   * Implementer også selve funksjonen. Trenger nok ikke dekke *alle* http-koder som finnes, men et fornuftig utvalg.
    */
   it('httpResponse() should throw appropriate messages on http error codes', () => {
     // Dette er gjerne 400 og 500 statuskoder
+    fail('Not implemented')
   })
 
   it('httpResponse() should not throw and return appropriate messages on successful http status codes', () => {
     // Dette er gjerne 100, 200, og 300 statuskoder
+    fail('Not implemented')
   })
 })

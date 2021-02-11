@@ -23,7 +23,7 @@ describe('Multiplication-table works as expected', () => {
 
   /**
    * Her definerer vi vår egen matcher, .secondColumnIsProductOfFirstAndNumber(), som sjekker at
-   * verdiene i kolonenne er riktig, basert på inn-parametere
+   * verdiene i kolonenne er riktig, basert på inn-parametere.
    */
   expect.extend({
     secondColumnIsProductOfFirstAndNumber(container, first, second, number) {
@@ -49,7 +49,8 @@ describe('Multiplication-table works as expected', () => {
   }
 
   /**
-   * Vi kan nøste describe-setninger for å gruppere test-caser
+   * Vi kan nøste describe-setninger for å gruppere test-caser,
+   * og definere variabler som vi kan gjenbruke i de indre it-setningene.
    */
   describe('Multiplication-table displays the correct default values', () => {
     const number = 5
@@ -57,7 +58,7 @@ describe('Multiplication-table works as expected', () => {
 
     /**
      * Denne testen skal sjekke at gangetabellen vår fungerer som forventet. En feil i koden gjør at denne feiler.
-     * Merk at vi kan bruke it.each() for å kalle samme it-setning med flere parametere
+     * Merk at vi kan bruke it.each() for å kalle samme it-setning med flere parametere.
      */
     it.each(numbers)('The second column is the product of first column and the given number', (index) => {
       const {container} = render(<App/>);
@@ -67,15 +68,16 @@ describe('Multiplication-table works as expected', () => {
     })
 
     /**
-     * Vi ønsker å utvide tabellen vår, slik at den har en ny kolonne som viser tallet potensen av tallet,
+     * Vi ønsker å utvide tabellen vår, slik at den har en ny kolonne som viser potensen av tallet,
      * der første kolonne er eksponenten, og tredje kolonne er potensen.
      * For eksempel vil 5^2 ha verdien 2 i første kolonne, og 25 i tredje.
      *
      * Her må applikasjonen utvides for å vise denne ekstra kolonnen, og det må skrives en test og en ny egendefinert
-     * matcher som sjekker at den tredje kolonnen har den riktige verdien
+     * matcher som sjekker at den tredje kolonnen har den riktige verdien.
      */
     it.each(numbers)('The third column is the nth power of number, where n is the first column', () => {
       // Skriv en test, som bruker en ny egendefinert matcher, og utvid applikasjonen
+      fail('Not implemented')
     })
   })
 
@@ -86,6 +88,7 @@ describe('Multiplication-table works as expected', () => {
    */
   describe('Multiplication-table displays the correct values for custom props', () => {
     // Skriv flere tester, som sjekker at vi kan sende inn egendefinerte props, og tabellen vil ha de riktige verdiene
+    fail('Not implemented')
   })
 })
 
