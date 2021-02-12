@@ -43,6 +43,12 @@ expect.extend({
 })
 
 const getValueFromRow = (position, index) => {
+  /**
+   * Helst ønsker man å unngå å benytte getByTestId() (merk at <td>-elementene i applikasjonen har property data-testid),
+   * da dette er usynlig for brukeren, og det er bedre å test etter hvordan det oppleves for brukeren.
+   * Men ofte er det nødvendig å måtte bruke en spesifikk nøkkel for å nå et gitt element, slik vi har gjort under.
+   * https://testing-library.com/docs/queries/about/#priority
+   */
   return parseInt(screen.getByTestId(`col_${position}_${index}`).innerHTML)
 }
 

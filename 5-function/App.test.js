@@ -35,7 +35,7 @@ it('login function has been called', () => {
   // Vi sender inn vårt mockete funksjonskall til appen som en prop.
   render(<App login={loginFunc} />)
 
-  userEvent.type(screen.queryByTestId('username-input'), 'bruker01')
+  userEvent.type(screen.getByLabelText(/Brukernavn/), 'bruker01')
   userEvent.click(screen.getByRole('button'))
   expect(loginFunc).toHaveBeenCalled()
 })

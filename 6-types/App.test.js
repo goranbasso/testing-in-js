@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
 import App from './App';
-import sum from './helpers'
+import {sum} from './helpers'
 
 /**
  * Dette testsettet er ment å vise hvordan man kan forsikre typesikkerhet gjennom testing i JavaScript.
@@ -35,8 +35,8 @@ it('calc-function has been called', () => {
 it('calc-function has been called with number-parameters', () => {
   render(<App calculate={calculateCall} />)
 
-  const paramAInput = screen.getByTestId('param-a-input')
-  const paramBInput = screen.getByTestId('param-b-input')
+  const paramAInput = screen.getByLabelText(/Param A:/)
+  const paramBInput = screen.getByLabelText(/Param B:/)
   const calcButton = screen.getByRole('button')
 
   userEvent.type(paramAInput, '4')

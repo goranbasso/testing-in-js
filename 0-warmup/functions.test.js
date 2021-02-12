@@ -54,5 +54,6 @@ describe('product()', () => {
  * 
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/abs
  */
-
+it('absolute() returns the absolute value of the input variable', () => {
 // Lag din test her
+})
