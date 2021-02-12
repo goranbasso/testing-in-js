@@ -84,14 +84,14 @@ NB: Du skal aldri modifisere filene `index.js` eller `index.html`
 ## Bruk
 - For å følge tester under utvikling:  
 >`npm run test:watch {navn-på-mappe-eller-test}`  
->`npm run test:watch warmup`
+>`npm run test:watch 0-warmup`
 - For å kjøre alle tester én gang:  
 >`npm run test`
 - For å kjøre alle tester i én oppgave én gang
->`npm run test warmup`
+>`npm run test 0-warmup`
 - For å kjøre applikasjon i nettleser (for React-oppgaver):  
 >`npm run start {relativ-sti-til-index.html}`  
->`npm run start oppgave1/index.html`
+>`npm run start 1-queries/index.html`
 
 ## Nyttig jest-funksjonalitet
 Hvis tilbakemeldingene fra jest blir rotete i terminalvinduet kan det være lurt å bruke kommandoene under for å rydde opp litt.  
