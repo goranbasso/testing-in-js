@@ -125,8 +125,10 @@ it('Lists the applications developed by the users', async () => {
  * 
  * Tips: For å sende inn data må vi bruke POST som metode i fetch.
  * 
- * Tips: https://upmostly.com/tutorials/react-onchange-events-with-examples#storing-input-value-state
- * Tips: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body
+ * https://upmostly.com/tutorials/react-onchange-events-with-examples#storing-input-value-state
+ * https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#body
+ * https://mswjs.io/docs/api/request
+ * 
  * 
  */
 it('Can add a new user', async () => {
