@@ -103,3 +103,6 @@ it('Contains a link to a fun website', () => {
  * Merk at getBy*() vil feile dersom den oppdager flere elementer som tilfredstiller kravet.
  * https://testing-library.com/docs/queries/about/#types-of-queries
  */
+it('Contains several other fun websites', () => {
+  throw new Error('Not implemented')
+})
