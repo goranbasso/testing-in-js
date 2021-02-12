@@ -3,8 +3,8 @@ JavaScript test workshop
 
 ## Førstegangskjøring
 - Kjør kommandoen `npm install` i et terminalvindu som har "working directory" i rotmappen til dette prosjektet, eller via verktøy i din IDE, for å installere alle avhengigheter som trengs for bygging og kjøring av applikasjonen.  
-- Les gjerne INTRO.md eller
-- Hopp rett til oppvarmingsoppgaven. Finn mappen `warmup` og åpne opp `functions.test.js`.
+- Les gjerne [INTRO.md](./INTRO.md) eller
+- Hopp rett til oppvarmingsoppgaven. Finn mappen `0-warmup` og åpne opp `functions.test.js`.
 
 ## Oppsett
 Hvis dere er interessert i hvordan denne applikasjonen er satt opp,
